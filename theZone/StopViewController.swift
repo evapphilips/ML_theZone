@@ -9,11 +9,17 @@
 import UIKit
 
 class StopViewController: UIViewController {
+    
+    // connect stop button
+    @IBOutlet weak var stopButton: UIButton!
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // format start button appearance
+        stopButton.layer.cornerRadius = 30;
     }
     
 
