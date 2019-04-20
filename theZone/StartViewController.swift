@@ -9,10 +9,16 @@
 import UIKit
 
 class StartViewController: UIViewController {
+    
+    // connect start button
+    @IBOutlet weak var startButton: UIButton!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        // format start button appearance
+        startButton.layer.cornerRadius = 30;
     }
 
 
