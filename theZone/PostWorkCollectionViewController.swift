@@ -33,7 +33,7 @@ class PostWorkCollectionViewController: UICollectionViewController {
         cancelButton.setTitle("cancel", for: .normal)
         cancelButton.setTitleColor(UIColor(red:0.32, green:0.28, blue:0.28, alpha:1.0), for: .normal)
         // add target when cancel button is pressed
-        cancelButton.addTarget(self, action: #selector(cancelClicked(_:)), for: .touchUpInside)
+        cancelButton.addTarget(self, action: #selector(cancelButtonClicked(_:)), for: .touchUpInside)
         self.view.addSubview(cancelButton)
 
 
@@ -45,7 +45,7 @@ class PostWorkCollectionViewController: UICollectionViewController {
     }
     
     // when cancel button is pressed go back to start view controller
-    @objc func cancelClicked(_ sender: UIButton){
+    @objc func cancelButtonClicked(_ sender: UIButton){
         //reference storyboard
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         // reference the next view controller (ie. stop view controller)

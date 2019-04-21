@@ -38,6 +38,9 @@
                                 <state key="normal" title="logout">
                                     <color key="titleColor" red="0.32156862749999998" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="logoutButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="946-LF-UxO"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1j-Nr-rLH">
                                 <rect key="frame" x="92" y="418" width="230" height="60"/>
@@ -67,6 +70,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="logoutButton" destination="ejA-0i-eLF" id="BNe-Tp-2wO"/>
                         <outlet property="startButton" destination="s1j-Nr-rLH" id="HOh-n0-raf"/>
                     </connections>
                 </viewController>
