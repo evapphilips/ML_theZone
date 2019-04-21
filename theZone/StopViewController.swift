@@ -13,6 +13,10 @@ class StopViewController: UIViewController {
     // connect stop button
     @IBOutlet weak var stopButton: UIButton!
     
+    // connect cancel button
+    @IBOutlet weak var cancelButton: UIButton!
+    
+    
     
 
     override func viewDidLoad() {
@@ -21,6 +25,29 @@ class StopViewController: UIViewController {
         // format start button appearance
         stopButton.layer.cornerRadius = 30;
     }
+    
+    // when stop button is pressed, switch to PostWork View
+    @IBAction func stopButtonClicked(_ sender: Any) {
+        //reference storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        // reference the next view controller (ie. pre work collection view controller)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PostWorkCollectionViewController") as! PostWorkCollectionViewController
+        self.present(vc, animated: false, completion: nil)
+    }
+    
+    // when cancel button is pressed go back to start view controller
+    @IBAction func cancelButtonClicked(_ sender: Any) {
+        //reference storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        // reference the next view controller (ie. stop view controller)
+        let vc = storyboard.instantiateViewController(withIdentifier: "StartViewController") as! StartViewController
+        self.present(vc, animated: false, completion: nil)
+        
+        
+        
+    }
+    
+    
     
 
     /*
