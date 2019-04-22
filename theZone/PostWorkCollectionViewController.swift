@@ -78,6 +78,9 @@ class PostWorkCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostCell", for: indexPath) as! PostWorkCollectionViewCell
+        
+        // set pre work questions
+        let postQuestions = ["Did you complete your goal for this work session?", "Are you excited/content with the work you completed this work session?", "Add some tags to this work session..."]
     
         // Configure the cell
         cell.layer.cornerRadius = 10
@@ -87,13 +90,17 @@ class PostWorkCollectionViewController: UICollectionViewController {
             cell.layer.borderWidth = 1
             // hide submit button
             cell.postSubmitButton.isHidden = true;
+            // set question label
+            cell.questionLabel.text = postQuestions[indexPath.row]
             
         }else{
             // hide border
             cell.layer.borderWidth = 0
             // show sumbit button
             cell.postSubmitButton.layer.cornerRadius = 25;
-            cell.postSubmitButton.isHidden = false;
+            cell.postSubmitButton.isHidden = false
+            // hide question
+            cell.questionLabel.isHidden = true
         }
         
         // call the change view method when submit is pressed

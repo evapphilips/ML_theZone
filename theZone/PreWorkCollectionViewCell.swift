@@ -10,10 +10,12 @@ import UIKit
 
 class PreWorkCollectionViewCell: UICollectionViewCell {
     
-
-    
     // connect submit button
     @IBOutlet weak var preSubmitButton: UIButton!
+    
+    // connect question label
+    @IBOutlet weak var questionLabel: UILabel!
+    
     
     
 }

@@ -13,5 +13,10 @@ class PostWorkCollectionViewCell: UICollectionViewCell {
     // connect submit button
     @IBOutlet weak var postSubmitButton: UIButton!
     
+    // connect post question label
+    @IBOutlet weak var questionLabel: UILabel!
+    
+    
+    
     
 }

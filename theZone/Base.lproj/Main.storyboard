@@ -112,14 +112,27 @@
                                                 <color key="titleColor" red="0.32156862749999998" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BZw-vZ-MhT">
+                                            <rect key="frame" x="-16" y="62" width="200" height="53"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="200" id="0yE-SV-pPp"/>
+                                                <constraint firstAttribute="height" constant="53" id="DW1-ow-WIA"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                            <color key="textColor" red="0.32156862749999998" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </view>
                                 <constraints>
+                                    <constraint firstItem="BZw-vZ-MhT" firstAttribute="centerX" secondItem="H7b-Wf-HKh" secondAttribute="centerX" id="DtA-Bs-3FA"/>
                                     <constraint firstItem="JcK-XJ-Bel" firstAttribute="centerY" secondItem="H7b-Wf-HKh" secondAttribute="centerY" id="Opz-Hf-ECj"/>
                                     <constraint firstItem="JcK-XJ-Bel" firstAttribute="centerX" secondItem="H7b-Wf-HKh" secondAttribute="centerX" id="bbj-cl-rjg"/>
+                                    <constraint firstItem="BZw-vZ-MhT" firstAttribute="top" secondItem="H7b-Wf-HKh" secondAttribute="topMargin" constant="10" id="rsp-0e-k90"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="preSubmitButton" destination="JcK-XJ-Bel" id="tr2-mw-SNC"/>
+                                    <outlet property="questionLabel" destination="BZw-vZ-MhT" id="Jes-Lq-a1a"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -247,14 +260,27 @@
                                                 <color key="titleColor" red="0.32156862749999998" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSb-Ke-3e8">
+                                            <rect key="frame" x="-14" y="62" width="200" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="200" id="HBi-p7-aMY"/>
+                                                <constraint firstAttribute="height" constant="100" id="TSr-Lt-hDl"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                            <color key="textColor" red="0.32156862749999998" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </view>
                                 <constraints>
+                                    <constraint firstItem="pSb-Ke-3e8" firstAttribute="centerX" secondItem="3jR-mO-3Ab" secondAttribute="centerX" id="375-SR-u8Y"/>
+                                    <constraint firstItem="pSb-Ke-3e8" firstAttribute="top" secondItem="3jR-mO-3Ab" secondAttribute="topMargin" constant="10" id="6N5-sZ-phQ"/>
                                     <constraint firstItem="wJq-hF-Fz7" firstAttribute="centerX" secondItem="3jR-mO-3Ab" secondAttribute="centerX" id="osC-WU-cMp"/>
                                     <constraint firstItem="wJq-hF-Fz7" firstAttribute="centerY" secondItem="3jR-mO-3Ab" secondAttribute="centerY" id="wLU-1P-6AS"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="postSubmitButton" destination="wJq-hF-Fz7" id="Kox-7D-BEw"/>
+                                    <outlet property="questionLabel" destination="pSb-Ke-3e8" id="vuj-Lw-Cc9"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

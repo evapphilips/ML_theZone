@@ -79,6 +79,9 @@ class PreWorkCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PreCell", for: indexPath) as! PreWorkCollectionViewCell
+        
+        // set pre work questions
+        let preQuestions = ["What project are you working on?", "What task are you working on?", "Where are you working?", "What is your goal for this work session?"]
     
         // Configure the cell
         cell.layer.cornerRadius = 10
@@ -87,15 +90,20 @@ class PreWorkCollectionViewController: UICollectionViewController {
             // show border
             cell.layer.borderWidth = 1
             // hide submit button
-            cell.preSubmitButton.isHidden = true;
-            
+            cell.preSubmitButton.isHidden = true
+            //set question label
+            cell.questionLabel.text = preQuestions[indexPath.row]
         }else{
             // hide border
             cell.layer.borderWidth = 0
             // show sumbit button
             cell.preSubmitButton.layer.cornerRadius = 25;
-            cell.preSubmitButton.isHidden = false;
+            cell.preSubmitButton.isHidden = false
+            // hide question
+            cell.questionLabel.isHidden = true
         }
+        
+        
         
         // call the change view method when submit is pressed
         cell.preSubmitButton.addTarget(self, action: #selector(preSubmitClicked(_:)), for: .touchUpInside)
