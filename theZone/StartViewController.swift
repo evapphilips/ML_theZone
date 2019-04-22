@@ -8,6 +8,13 @@
 
 import UIKit
 
+// set stuct for json
+struct workInProgress {
+    var project: String
+    var task: String
+}
+
+
 // set variables for credentials in user defaults
 var username = UserDefaults.standard.string(forKey: "username") ?? ""
 var password = UserDefaults.standard.string(forKey: "password") ?? ""
@@ -20,10 +27,8 @@ class StartViewController: UIViewController {
     // connect logout button
     @IBOutlet weak var logoutButton: UIButton!
     
-    
     // setup login alert
     var loginAlert: UIAlertController!
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,6 +88,9 @@ class StartViewController: UIViewController {
             // set the inputs to the default username and password
             UserDefaults.standard.set(emailField.text!, forKey: "username")
             UserDefaults.standard.set(passwordField.text!, forKey: "password")
+            // reset username and password
+            username = UserDefaults.standard.string(forKey: "username") ?? ""
+            password = UserDefaults.standard.string(forKey: "password") ?? ""
             
         }
         loginAction.isEnabled = false

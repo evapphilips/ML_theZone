@@ -17,6 +17,9 @@ class PreWorkCollectionViewController: UICollectionViewController {
     
     // connect cancel button
     var cancelButton: UIButton!
+    
+    // set indexing names for cells of collection view
+    let cellNameForIndex: [String] = ["project", "task", "place", "goal", "submit"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,8 +85,8 @@ class PreWorkCollectionViewController: UICollectionViewController {
         
         // set pre work questions
         let preQuestions = ["What project are you working on?", "What task are you working on?", "Where are you working?", "What is your goal for this work session?"]
-    
-        // Configure the cell
+
+        // Configure the cell's background and questions
         cell.layer.cornerRadius = 10
         cell.layer.borderColor = UIColor.white.cgColor
         if(indexPath.row<4){ // for the first 4 rows
@@ -103,6 +106,28 @@ class PreWorkCollectionViewController: UICollectionViewController {
             cell.questionLabel.isHidden = true
         }
         
+        //var project: String?
+        // configure text fields in cells
+//        cell.answerTextField.addTarget(self, action: #selector(PreWorkCollectionViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        switch(cellNameForIndex[indexPath.row]) {
+        case "project":
+            print("in project cell")
+            cell.answerTextField.isHidden = false
+        case "task":
+            print("task")
+            cell.answerTextField.isHidden = false
+        case "place":
+            print("place")
+            cell.answerTextField.isHidden = true
+        case "goal":
+            print("goal")
+            cell.answerTextField.isHidden = false
+        case "submit":
+            print("submit")
+            cell.answerTextField.isHidden = true
+        default:
+            print("out of collection view")
+        }
         
         
         // call the change view method when submit is pressed
@@ -118,8 +143,8 @@ class PreWorkCollectionViewController: UICollectionViewController {
         // reference the next view controller (ie. stop view controller)
         let vc = storyboard.instantiateViewController(withIdentifier: "StopViewController") as! StopViewController
         self.present(vc, animated: false, completion: nil)
-        
     }
+    
 
     // MARK: UICollectionViewDelegate
 

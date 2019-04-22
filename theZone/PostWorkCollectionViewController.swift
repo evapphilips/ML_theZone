@@ -82,7 +82,7 @@ class PostWorkCollectionViewController: UICollectionViewController {
         // set pre work questions
         let postQuestions = ["Did you complete your goal for this work session?", "Are you excited/content with the work you completed this work session?", "Add some tags to this work session..."]
     
-        // Configure the cell
+        // Configure the cell's background and questions
         cell.layer.cornerRadius = 10
         cell.layer.borderColor = UIColor.white.cgColor
         if(indexPath.row<3){ // for the first 4 rows

@@ -16,6 +16,12 @@ class PreWorkCollectionViewCell: UICollectionViewCell {
     // connect question label
     @IBOutlet weak var questionLabel: UILabel!
     
+    // connect answer text field
+    @IBOutlet weak var answerTextField: UITextField!
+    
+    
+    
+    
     
     
 }
