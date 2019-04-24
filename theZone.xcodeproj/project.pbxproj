@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		D90877B6226B8CD2000857DD /* StopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90877B5226B8CD2000857DD /* StopViewController.swift */; };
+		D9C306A2226FD931007EFC36 /* PreSubmitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C306A1226FD931007EFC36 /* PreSubmitCollectionViewCell.swift */; };
+		D9C306A4226FDCD0007EFC36 /* PreInputFieldCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C306A3226FDCD0007EFC36 /* PreInputFieldCollectionViewCell.swift */; };
+		D9C306A6226FE52F007EFC36 /* PreButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C306A5226FE52F007EFC36 /* PreButtonCollectionViewCell.swift */; };
 		D9CA32F4226B850400B182CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CA32F3226B850400B182CB /* AppDelegate.swift */; };
 		D9CA32F6226B850400B182CB /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CA32F5226B850400B182CB /* StartViewController.swift */; };
 		D9CA32F9226B850400B182CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9CA32F7226B850400B182CB /* Main.storyboard */; };
@@ -16,12 +19,14 @@
 		D9EDDC28226CF91C004FB7E0 /* PreWorkCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EDDC27226CF91C004FB7E0 /* PreWorkCollectionViewController.swift */; };
 		D9EDDC2A226CF9A7004FB7E0 /* PostWorkCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EDDC29226CF9A7004FB7E0 /* PostWorkCollectionViewController.swift */; };
 		D9EDDC2C226CFCAA004FB7E0 /* ZoomAndSnapUICollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EDDC2B226CFCAA004FB7E0 /* ZoomAndSnapUICollectionViewFlowLayout.swift */; };
-		D9EDDC2E226D0019004FB7E0 /* PreWorkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EDDC2D226D0019004FB7E0 /* PreWorkCollectionViewCell.swift */; };
 		D9EDDC30226D081D004FB7E0 /* PostWorkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EDDC2F226D081D004FB7E0 /* PostWorkCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D90877B5226B8CD2000857DD /* StopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopViewController.swift; sourceTree = "<group>"; };
+		D9C306A1226FD931007EFC36 /* PreSubmitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreSubmitCollectionViewCell.swift; sourceTree = "<group>"; };
+		D9C306A3226FDCD0007EFC36 /* PreInputFieldCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreInputFieldCollectionViewCell.swift; sourceTree = "<group>"; };
+		D9C306A5226FE52F007EFC36 /* PreButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		D9CA32F0226B850400B182CB /* theZone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = theZone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9CA32F3226B850400B182CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9CA32F5226B850400B182CB /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
@@ -32,7 +37,6 @@
 		D9EDDC27226CF91C004FB7E0 /* PreWorkCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreWorkCollectionViewController.swift; sourceTree = "<group>"; };
 		D9EDDC29226CF9A7004FB7E0 /* PostWorkCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWorkCollectionViewController.swift; sourceTree = "<group>"; };
 		D9EDDC2B226CFCAA004FB7E0 /* ZoomAndSnapUICollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomAndSnapUICollectionViewFlowLayout.swift; sourceTree = "<group>"; };
-		D9EDDC2D226D0019004FB7E0 /* PreWorkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreWorkCollectionViewCell.swift; sourceTree = "<group>"; };
 		D9EDDC2F226D081D004FB7E0 /* PostWorkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWorkCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,7 +73,9 @@
 				D9CA32F3226B850400B182CB /* AppDelegate.swift */,
 				D9CA32F5226B850400B182CB /* StartViewController.swift */,
 				D9EDDC27226CF91C004FB7E0 /* PreWorkCollectionViewController.swift */,
-				D9EDDC2D226D0019004FB7E0 /* PreWorkCollectionViewCell.swift */,
+				D9C306A1226FD931007EFC36 /* PreSubmitCollectionViewCell.swift */,
+				D9C306A3226FDCD0007EFC36 /* PreInputFieldCollectionViewCell.swift */,
+				D9C306A5226FE52F007EFC36 /* PreButtonCollectionViewCell.swift */,
 				D90877B5226B8CD2000857DD /* StopViewController.swift */,
 				D9EDDC29226CF9A7004FB7E0 /* PostWorkCollectionViewController.swift */,
 				D9EDDC2F226D081D004FB7E0 /* PostWorkCollectionViewCell.swift */,
@@ -154,12 +160,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D90877B6226B8CD2000857DD /* StopViewController.swift in Sources */,
-				D9EDDC2E226D0019004FB7E0 /* PreWorkCollectionViewCell.swift in Sources */,
 				D9EDDC2A226CF9A7004FB7E0 /* PostWorkCollectionViewController.swift in Sources */,
+				D9C306A2226FD931007EFC36 /* PreSubmitCollectionViewCell.swift in Sources */,
 				D9EDDC28226CF91C004FB7E0 /* PreWorkCollectionViewController.swift in Sources */,
 				D9EDDC2C226CFCAA004FB7E0 /* ZoomAndSnapUICollectionViewFlowLayout.swift in Sources */,
+				D9C306A4226FDCD0007EFC36 /* PreInputFieldCollectionViewCell.swift in Sources */,
 				D9CA32F6226B850400B182CB /* StartViewController.swift in Sources */,
 				D9EDDC30226D081D004FB7E0 /* PostWorkCollectionViewCell.swift in Sources */,
+				D9C306A6226FE52F007EFC36 /* PreButtonCollectionViewCell.swift in Sources */,
 				D9CA32F4226B850400B182CB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

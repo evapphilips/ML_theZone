@@ -18,8 +18,6 @@ class PreWorkCollectionViewController: UICollectionViewController {
     // connect cancel button
     var cancelButton: UIButton!
     
-    // set indexing names for cells of collection view
-    let cellNameForIndex: [String] = ["project", "task", "place", "goal", "submit"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,59 +79,69 @@ class PreWorkCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PreCell", for: indexPath) as! PreWorkCollectionViewCell
+        
+        // initilize cell instance
+        //let cell: UICollectionViewCell!
         
         // set pre work questions
         let preQuestions = ["What project are you working on?", "What task are you working on?", "Where are you working?", "What is your goal for this work session?"]
-
-        // Configure the cell's background and questions
-        cell.layer.cornerRadius = 10
-        cell.layer.borderColor = UIColor.white.cgColor
-        if(indexPath.row<4){ // for the first 4 rows
-            // show border
+        
+        if indexPath.row == 0{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PreInputFieldCell", for: indexPath) as! PreInputFieldCollectionViewCell
+            cell.layer.cornerRadius = 10
+            cell.layer.borderColor = UIColor.white.cgColor
             cell.layer.borderWidth = 1
-            // hide submit button
-            cell.preSubmitButton.isHidden = true
-            //set question label
-            cell.questionLabel.text = preQuestions[indexPath.row]
+            cell.preQuestionLabel.text = preQuestions[indexPath.row]
+            return cell
+        }else if indexPath.row == 1{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PreInputFieldCell", for: indexPath) as! PreInputFieldCollectionViewCell
+            cell.layer.cornerRadius = 10
+            cell.layer.borderColor = UIColor.white.cgColor
+            cell.layer.borderWidth = 1
+            cell.preQuestionLabel.text = preQuestions[indexPath.row]
+            return cell
+        }else if indexPath.row == 2{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PreButtonCell", for: indexPath) as! PreButtonCollectionViewCell
+            return cell
+        }
+        else if indexPath.row == 3{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PreInputFieldCell", for: indexPath) as! PreInputFieldCollectionViewCell
+            cell.layer.cornerRadius = 10
+            cell.layer.borderColor = UIColor.white.cgColor
+            cell.layer.borderWidth = 1
+            cell.preQuestionLabel.text = preQuestions[indexPath.row]
+            return cell
         }else{
-            // hide border
-            cell.layer.borderWidth = 0
-            // show sumbit button
-            cell.preSubmitButton.layer.cornerRadius = 25;
-            cell.preSubmitButton.isHidden = false
-            // hide question
-            cell.questionLabel.isHidden = true
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PreSubmitCell", for: indexPath) as! PreSubmitCollectionViewCell
+            // format submit button
+            cell.preSubmitButton.layer.cornerRadius = 25
+            // call the change view method when submit is pressed
+            cell.preSubmitButton.addTarget(self, action: #selector(preSubmitClicked(_:)), for: .touchUpInside)
+            return cell
         }
         
-        //var project: String?
-        // configure text fields in cells
-//        cell.answerTextField.addTarget(self, action: #selector(PreWorkCollectionViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-        switch(cellNameForIndex[indexPath.row]) {
-        case "project":
-            print("in project cell")
-            cell.answerTextField.isHidden = false
-        case "task":
-            print("task")
-            cell.answerTextField.isHidden = false
-        case "place":
-            print("place")
-            cell.answerTextField.isHidden = true
-        case "goal":
-            print("goal")
-            cell.answerTextField.isHidden = false
-        case "submit":
-            print("submit")
-            cell.answerTextField.isHidden = true
-        default:
-            print("out of collection view")
-        }
+
+//        // Configure the cell's background and questions
+//        cell.layer.cornerRadius = 10
+//        cell.layer.borderColor = UIColor.white.cgColor
+//        if(indexPath.row<4){ // for the first 4 rows
+//            // show border
+//            cell.layer.borderWidth = 1
+//            // hide submit button
+//            cell.preSubmitButton.isHidden = true
+//            //set question label
+//            cell.questionLabel.text = preQuestions[indexPath.row]
+//        }else{
+//            // hide border
+//            cell.layer.borderWidth = 0
+//            // show sumbit button
+//            cell.preSubmitButton.layer.cornerRadius = 25;
+//            cell.preSubmitButton.isHidden = false
+//            // hide question
+//            cell.questionLabel.isHidden = true
+//        }
         
-        
-        // call the change view method when submit is pressed
-        cell.preSubmitButton.addTarget(self, action: #selector(preSubmitClicked(_:)), for: .touchUpInside)
-        
-        return cell
+        //return cell
     }
     
     // when pre submit button is pressed

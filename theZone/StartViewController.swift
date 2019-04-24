@@ -8,11 +8,11 @@
 
 import UIKit
 
-// set stuct for json
-struct workInProgress {
-    var project: String
-    var task: String
-}
+//// set stuct for json
+//struct workInProgress {
+//    var project: String
+//    var task: String
+//}
 
 
 // set variables for credentials in user defaults
