@@ -9,24 +9,30 @@
 /* Begin PBXBuildFile section */
 		D90877B6226B8CD2000857DD /* StopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90877B5226B8CD2000857DD /* StopViewController.swift */; };
 		D9C306A2226FD931007EFC36 /* PreSubmitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C306A1226FD931007EFC36 /* PreSubmitCollectionViewCell.swift */; };
-		D9C306A4226FDCD0007EFC36 /* PreInputFieldCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C306A3226FDCD0007EFC36 /* PreInputFieldCollectionViewCell.swift */; };
-		D9C306A6226FE52F007EFC36 /* PreButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C306A5226FE52F007EFC36 /* PreButtonCollectionViewCell.swift */; };
+		D9C306A4226FDCD0007EFC36 /* ProjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C306A3226FDCD0007EFC36 /* ProjectCollectionViewCell.swift */; };
+		D9C306A6226FE52F007EFC36 /* PlaceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C306A5226FE52F007EFC36 /* PlaceCollectionViewCell.swift */; };
 		D9CA32F4226B850400B182CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CA32F3226B850400B182CB /* AppDelegate.swift */; };
 		D9CA32F6226B850400B182CB /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CA32F5226B850400B182CB /* StartViewController.swift */; };
 		D9CA32F9226B850400B182CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9CA32F7226B850400B182CB /* Main.storyboard */; };
 		D9CA32FB226B850500B182CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9CA32FA226B850500B182CB /* Assets.xcassets */; };
 		D9CA32FE226B850500B182CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9CA32FC226B850500B182CB /* LaunchScreen.storyboard */; };
+		D9D9BC812274ADAD002C150E /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D9BC802274ADAD002C150E /* AppData.swift */; };
+		D9D9BC832274BA28002C150E /* TaskCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D9BC822274BA28002C150E /* TaskCollectionViewCell.swift */; };
+		D9D9BC852274BB32002C150E /* GoalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D9BC842274BB32002C150E /* GoalCollectionViewCell.swift */; };
+		D9D9BC872274DE70002C150E /* ExciteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D9BC862274DE70002C150E /* ExciteCollectionViewCell.swift */; };
+		D9D9BC892274E0E1002C150E /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D9BC882274E0E1002C150E /* TagCollectionViewCell.swift */; };
+		D9D9BC8B2274E5BD002C150E /* PostSubmitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D9BC8A2274E5BD002C150E /* PostSubmitCollectionViewCell.swift */; };
 		D9EDDC28226CF91C004FB7E0 /* PreWorkCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EDDC27226CF91C004FB7E0 /* PreWorkCollectionViewController.swift */; };
 		D9EDDC2A226CF9A7004FB7E0 /* PostWorkCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EDDC29226CF9A7004FB7E0 /* PostWorkCollectionViewController.swift */; };
 		D9EDDC2C226CFCAA004FB7E0 /* ZoomAndSnapUICollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EDDC2B226CFCAA004FB7E0 /* ZoomAndSnapUICollectionViewFlowLayout.swift */; };
-		D9EDDC30226D081D004FB7E0 /* PostWorkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EDDC2F226D081D004FB7E0 /* PostWorkCollectionViewCell.swift */; };
+		D9EDDC30226D081D004FB7E0 /* CompleteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EDDC2F226D081D004FB7E0 /* CompleteCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D90877B5226B8CD2000857DD /* StopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopViewController.swift; sourceTree = "<group>"; };
 		D9C306A1226FD931007EFC36 /* PreSubmitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreSubmitCollectionViewCell.swift; sourceTree = "<group>"; };
-		D9C306A3226FDCD0007EFC36 /* PreInputFieldCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreInputFieldCollectionViewCell.swift; sourceTree = "<group>"; };
-		D9C306A5226FE52F007EFC36 /* PreButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreButtonCollectionViewCell.swift; sourceTree = "<group>"; };
+		D9C306A3226FDCD0007EFC36 /* ProjectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCollectionViewCell.swift; sourceTree = "<group>"; };
+		D9C306A5226FE52F007EFC36 /* PlaceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCollectionViewCell.swift; sourceTree = "<group>"; };
 		D9CA32F0226B850400B182CB /* theZone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = theZone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9CA32F3226B850400B182CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9CA32F5226B850400B182CB /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
@@ -34,10 +40,16 @@
 		D9CA32FA226B850500B182CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D9CA32FD226B850500B182CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D9CA32FF226B850500B182CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9D9BC802274ADAD002C150E /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
+		D9D9BC822274BA28002C150E /* TaskCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCollectionViewCell.swift; sourceTree = "<group>"; };
+		D9D9BC842274BB32002C150E /* GoalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCollectionViewCell.swift; sourceTree = "<group>"; };
+		D9D9BC862274DE70002C150E /* ExciteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExciteCollectionViewCell.swift; sourceTree = "<group>"; };
+		D9D9BC882274E0E1002C150E /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
+		D9D9BC8A2274E5BD002C150E /* PostSubmitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSubmitCollectionViewCell.swift; sourceTree = "<group>"; };
 		D9EDDC27226CF91C004FB7E0 /* PreWorkCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreWorkCollectionViewController.swift; sourceTree = "<group>"; };
 		D9EDDC29226CF9A7004FB7E0 /* PostWorkCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWorkCollectionViewController.swift; sourceTree = "<group>"; };
 		D9EDDC2B226CFCAA004FB7E0 /* ZoomAndSnapUICollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomAndSnapUICollectionViewFlowLayout.swift; sourceTree = "<group>"; };
-		D9EDDC2F226D081D004FB7E0 /* PostWorkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWorkCollectionViewCell.swift; sourceTree = "<group>"; };
+		D9EDDC2F226D081D004FB7E0 /* CompleteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,14 +83,20 @@
 			isa = PBXGroup;
 			children = (
 				D9CA32F3226B850400B182CB /* AppDelegate.swift */,
+				D9D9BC802274ADAD002C150E /* AppData.swift */,
 				D9CA32F5226B850400B182CB /* StartViewController.swift */,
 				D9EDDC27226CF91C004FB7E0 /* PreWorkCollectionViewController.swift */,
+				D9C306A3226FDCD0007EFC36 /* ProjectCollectionViewCell.swift */,
+				D9D9BC822274BA28002C150E /* TaskCollectionViewCell.swift */,
+				D9C306A5226FE52F007EFC36 /* PlaceCollectionViewCell.swift */,
+				D9D9BC842274BB32002C150E /* GoalCollectionViewCell.swift */,
 				D9C306A1226FD931007EFC36 /* PreSubmitCollectionViewCell.swift */,
-				D9C306A3226FDCD0007EFC36 /* PreInputFieldCollectionViewCell.swift */,
-				D9C306A5226FE52F007EFC36 /* PreButtonCollectionViewCell.swift */,
 				D90877B5226B8CD2000857DD /* StopViewController.swift */,
 				D9EDDC29226CF9A7004FB7E0 /* PostWorkCollectionViewController.swift */,
-				D9EDDC2F226D081D004FB7E0 /* PostWorkCollectionViewCell.swift */,
+				D9EDDC2F226D081D004FB7E0 /* CompleteCollectionViewCell.swift */,
+				D9D9BC862274DE70002C150E /* ExciteCollectionViewCell.swift */,
+				D9D9BC882274E0E1002C150E /* TagCollectionViewCell.swift */,
+				D9D9BC8A2274E5BD002C150E /* PostSubmitCollectionViewCell.swift */,
 				D9EDDC2B226CFCAA004FB7E0 /* ZoomAndSnapUICollectionViewFlowLayout.swift */,
 				D9CA32F7226B850400B182CB /* Main.storyboard */,
 				D9CA32FA226B850500B182CB /* Assets.xcassets */,
@@ -163,11 +181,17 @@
 				D9EDDC2A226CF9A7004FB7E0 /* PostWorkCollectionViewController.swift in Sources */,
 				D9C306A2226FD931007EFC36 /* PreSubmitCollectionViewCell.swift in Sources */,
 				D9EDDC28226CF91C004FB7E0 /* PreWorkCollectionViewController.swift in Sources */,
+				D9D9BC812274ADAD002C150E /* AppData.swift in Sources */,
 				D9EDDC2C226CFCAA004FB7E0 /* ZoomAndSnapUICollectionViewFlowLayout.swift in Sources */,
-				D9C306A4226FDCD0007EFC36 /* PreInputFieldCollectionViewCell.swift in Sources */,
+				D9D9BC8B2274E5BD002C150E /* PostSubmitCollectionViewCell.swift in Sources */,
+				D9C306A4226FDCD0007EFC36 /* ProjectCollectionViewCell.swift in Sources */,
+				D9D9BC852274BB32002C150E /* GoalCollectionViewCell.swift in Sources */,
 				D9CA32F6226B850400B182CB /* StartViewController.swift in Sources */,
-				D9EDDC30226D081D004FB7E0 /* PostWorkCollectionViewCell.swift in Sources */,
-				D9C306A6226FE52F007EFC36 /* PreButtonCollectionViewCell.swift in Sources */,
+				D9EDDC30226D081D004FB7E0 /* CompleteCollectionViewCell.swift in Sources */,
+				D9D9BC832274BA28002C150E /* TaskCollectionViewCell.swift in Sources */,
+				D9C306A6226FE52F007EFC36 /* PlaceCollectionViewCell.swift in Sources */,
+				D9D9BC892274E0E1002C150E /* TagCollectionViewCell.swift in Sources */,
+				D9D9BC872274DE70002C150E /* ExciteCollectionViewCell.swift in Sources */,
 				D9CA32F4226B850400B182CB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

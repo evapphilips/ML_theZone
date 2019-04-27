@@ -77,36 +77,52 @@ class PostWorkCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostCell", for: indexPath) as! PostWorkCollectionViewCell
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostCell", for: indexPath) as! PostWorkCollectionViewCell
         
         // set pre work questions
-        let postQuestions = ["Did you complete your goal for this work session?", "Are you excited/content with the work you completed this work session?", "Add some tags to this work session..."]
-    
-        // Configure the cell's background and questions
-        cell.layer.cornerRadius = 10
-        cell.layer.borderColor = UIColor.white.cgColor
-        if(indexPath.row<3){ // for the first 4 rows
-            // show border
+        let postQuestions = ["Did you complete your goal for this work session?", "Are you excited about the work you completed?", "Add some tags to this work session..."]
+        
+        if indexPath.row == 0{
+           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CompleteCell", for: indexPath) as! CompleteCollectionViewCell
+            cell.layer.cornerRadius = 10
+            cell.layer.borderColor = UIColor.white.cgColor
             cell.layer.borderWidth = 1
-            // hide submit button
-            cell.postSubmitButton.isHidden = true;
-            // set question label
-            cell.questionLabel.text = postQuestions[indexPath.row]
-            
+            cell.postQuestionLabel.text = postQuestions[indexPath.row]
+            cell.yesButton.layer.cornerRadius = 15
+            cell.noButton.layer.cornerRadius = 15
+            cell.mostlyButton.layer.cornerRadius = 15
+            return cell
+        }else if indexPath.row == 1{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ExciteCell", for: indexPath) as! ExciteCollectionViewCell
+            cell.layer.cornerRadius = 10
+            cell.layer.borderColor = UIColor.white.cgColor
+            cell.layer.borderWidth = 1
+            cell.postQuestionLabel.text = postQuestions[indexPath.row]
+            cell.yesButton.layer.cornerRadius = 15
+            cell.noButton.layer.cornerRadius = 15
+            cell.mostlyButton.layer.cornerRadius = 15
+            return cell
+        }else if indexPath.row == 2{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCell", for: indexPath) as! TagCollectionViewCell
+            cell.layer.cornerRadius = 10
+            cell.layer.borderColor = UIColor.white.cgColor
+            cell.layer.borderWidth = 1
+            cell.postQuestionLabel.text = postQuestions[indexPath.row]
+            cell.tiredButton.layer.cornerRadius = 15
+            cell.distractedButton.layer.cornerRadius = 15
+            cell.noCoffeeButton.layer.cornerRadius = 15
+            cell.hungryButton.layer.cornerRadius = 15
+            cell.sickButton.layer.cornerRadius = 15
+            cell.screenButton.layer.cornerRadius = 15
+            cell.otherButton.layer.cornerRadius = 15
+            return cell
         }else{
-            // hide border
-            cell.layer.borderWidth = 0
-            // show sumbit button
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostSubmitCell", for: indexPath) as! PostSubmitCollectionViewCell
             cell.postSubmitButton.layer.cornerRadius = 25;
-            cell.postSubmitButton.isHidden = false
-            // hide question
-            cell.questionLabel.isHidden = true
+            cell.postSubmitButton.addTarget(self, action: #selector(postSubmitClicked(_:)), for: .touchUpInside)
+           return cell
         }
         
-        // call the change view method when submit is pressed
-        cell.postSubmitButton.addTarget(self, action: #selector(postSubmitClicked(_:)), for: .touchUpInside)
-        
-        return cell
     }
     
     // when post submit button is pressed

@@ -8,12 +8,17 @@
 
 import UIKit
 
-class PreInputFieldCollectionViewCell: UICollectionViewCell {
+class ProjectCollectionViewCell: UICollectionViewCell {
     
     // connect question label
     @IBOutlet weak var preQuestionLabel: UILabel!
     
-    // connect short text field
-    @IBOutlet weak var preShortTextField: UITextField!
+    
+    
+    // connect project text field
+    @IBOutlet weak var projectTextField: UITextField!
+    
+    
+    
     
 }
