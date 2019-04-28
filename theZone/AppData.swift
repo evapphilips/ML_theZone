@@ -21,6 +21,7 @@ class AppData{
     var goal:String = ""
     
     var location:[Double] = []
+    var sound:String = ""
     
     var timeStart:NSDate!
     var goalCompletion:String = ""

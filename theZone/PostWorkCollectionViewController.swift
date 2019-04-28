@@ -73,6 +73,7 @@ class PostWorkCollectionViewController: UICollectionViewController {
             self.myAppData.place = ""
             self.myAppData.goal = ""
             self.myAppData.location = []
+            self.myAppData.sound = ""
             self.myAppData.timeStart = nil
             self.myAppData.goalCompletion = ""
             self.myAppData.excitement = ""
@@ -183,7 +184,7 @@ class PostWorkCollectionViewController: UICollectionViewController {
     // when post submit button is pressed
     @objc func postSubmitClicked(_ sender: UIButton){
         // when submit is pressed, send the work session data to the api
-        postData(project: myAppData.project, task: myAppData.task, place: myAppData.place, goal: myAppData.goal, location: myAppData.location, timeStart: myAppData.timeStart, goalCompletion: myAppData.goalCompletion, excitement: myAppData.excitement, tags: myAppData.tags, timeEnd: myAppData.timeEnd)
+        postData(project: myAppData.project, task: myAppData.task, place: myAppData.place, goal: myAppData.goal, location: myAppData.location, sound: myAppData.sound, timeStart: myAppData.timeStart, goalCompletion: myAppData.goalCompletion, excitement: myAppData.excitement, tags: myAppData.tags, timeEnd: myAppData.timeEnd)
         //reference storyboard
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         // reference the next view controller (ie. stop view controller)
@@ -196,6 +197,7 @@ class PostWorkCollectionViewController: UICollectionViewController {
         myAppData.place = ""
         myAppData.goal = ""
         myAppData.location = []
+        myAppData.sound = ""
         myAppData.timeStart = nil
         myAppData.goalCompletion = ""
         myAppData.excitement = ""
@@ -223,7 +225,7 @@ class PostWorkCollectionViewController: UICollectionViewController {
     }
     
     // make a POST request to the api when post submit is pressed
-    func postData(project: String, task: String, place: String, goal: String, location: [Double], timeStart: NSDate, goalCompletion: String, excitement: String, tags: [String], timeEnd: NSDate){
+    func postData(project: String, task: String, place: String, goal: String, location: [Double], sound: String, timeStart: NSDate, goalCompletion: String, excitement: String, tags: [String], timeEnd: NSDate){
         // set username and password from defaults
         let username = UserDefaults.standard.string(forKey: "username") ?? ""
         let password = UserDefaults.standard.string(forKey: "password") ?? ""
@@ -234,7 +236,7 @@ class PostWorkCollectionViewController: UICollectionViewController {
         // Make POST request
         Alamofire.request("https://the-zone-api.herokuapp.com/api",
                           method: .post,
-                          parameters: ["project":project, "task":task, "place":place, "goal":goal, "location":location, "timeStart":timeStart, "goalCompletion":goalCompletion, "excitement":excitement, "tags":tags, "timeEnd":timeEnd],
+                          parameters: ["project":project, "task":task, "place":place, "goal":goal, "location":location, "sound": sound, "timeStart":timeStart, "goalCompletion":goalCompletion, "excitement":excitement, "tags":tags, "timeEnd":timeEnd],
                           encoding: URLEncoding.default,
                           headers:headers)
             .validate()

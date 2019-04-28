@@ -8,10 +8,11 @@
 
 import UIKit
 import CoreLocation
+import AVFoundation
 
 private let reuseIdentifier = "Cell"
 
-class PreWorkCollectionViewController: UICollectionViewController {
+class PreWorkCollectionViewController: UICollectionViewController, AVAudioRecorderDelegate {
     
     // connect app data to this view controller
     let myAppData = AppData.shared
@@ -27,9 +28,10 @@ class PreWorkCollectionViewController: UICollectionViewController {
     
     // setup location
     let locationManager = CLLocationManager()
-//    let latitude: Double
-//    let longitude: Double
-//    let description: String
+    
+    // setup sound level
+    var timer: Timer?
+    var recorder: AVAudioRecorder!
     
 
     override func viewDidLoad() {
@@ -63,16 +65,33 @@ class PreWorkCollectionViewController: UICollectionViewController {
         }else{
             print("Location not authorized")
         }
+        // sound level
+        self.requestSoundAuthorization()
+        if self.recorder != nil {
+            return
+        }
+        let soundUrl: NSURL = NSURL(fileURLWithPath: "/dev/null")
+        let settings = [
+            AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+            AVSampleRateKey: 12000,
+            AVNumberOfChannelsKey: 1,
+            AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
+        ]
+        do {
+            self.recorder = try AVAudioRecorder(url: soundUrl as URL, settings: settings )
+            self.recorder.delegate = self
+            self.recorder.isMeteringEnabled = true
+
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category(rawValue: convertFromAVAudioSessionCategory(AVAudioSession.Category.record)))
+            
+            self.recorder.record()
+            
+            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(getSoundLevel(_:)), userInfo: nil, repeats: true)
+        } catch {
+            print("Fail to record.")
+        }
         
 
-        
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        
-
-        // Do any additional setup after loading the view.
     }
     
     // when cancel button is pressed go back to start view controller
@@ -93,6 +112,7 @@ class PreWorkCollectionViewController: UICollectionViewController {
             self.myAppData.place = ""
             self.myAppData.goal = ""
             self.myAppData.location = []
+            self.myAppData.sound = ""
             self.myAppData.timeStart = nil
             self.myAppData.goalCompletion = ""
             self.myAppData.excitement = ""
@@ -110,6 +130,29 @@ class PreWorkCollectionViewController: UICollectionViewController {
         cancelAlert.addAction(noAction)
         // show login alert
         self.present(cancelAlert, animated: true)
+    }
+    
+    func requestSoundAuthorization(){
+        switch AVAudioSession.sharedInstance().recordPermission {
+        case AVAudioSessionRecordPermission.granted:
+            print("Permission granted")
+        case AVAudioSessionRecordPermission.denied:
+            print("Pemission denied")
+        case AVAudioSessionRecordPermission.undetermined:
+            print("Request permission here")
+            AVAudioSession.sharedInstance().requestRecordPermission({ (granted) in
+                // Handle granted
+                print("granted")
+            })
+        }
+    }
+    
+    // get the sound level and save it to the app data
+    @objc internal func getSoundLevel(_: Timer) {
+        recorder.updateMeters()
+        
+        // set level to app data
+        myAppData.sound = String(recorder.averagePower(forChannel: 0))
     }
 
     /*
@@ -270,5 +313,11 @@ class PreWorkCollectionViewController: UICollectionViewController {
     */
 
 }
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromAVAudioSessionCategory(_ input: AVAudioSession.Category) -> String {
+    return input.rawValue
+}
+
 
 

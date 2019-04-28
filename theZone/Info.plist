@@ -45,5 +45,7 @@
 	<string>theZone stores your location data in your account for each work session</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Only when in use</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>theZone stores the sound level of your work area</string>
 </dict>
 </plist>
