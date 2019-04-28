@@ -25,4 +25,17 @@ class AppData{
     var tags:[String] = []
     var timeEnd:NSDate!
     
+//    struct workData{
+//        var project:String = ""
+//        var task:String = ""
+//        var place:String = ""
+//        var goal:String = ""
+//        var timeStart:NSDate!
+//        var goalCompletion:String = ""
+//        var excitement:String = ""
+//        var tags:[String] = []
+//        var timeEnd:NSDate!
+//
+//    }
+    
 }

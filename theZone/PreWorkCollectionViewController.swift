@@ -55,14 +55,16 @@ class PreWorkCollectionViewController: UICollectionViewController {
     
     // when cancel button is pressed go back to start view controller
     @objc func cancelButtonClicked(_ sender: UIButton){
-        
-        // clear the app Data
+        // clear all the data variables
         myAppData.project = ""
         myAppData.task = ""
         myAppData.place = ""
         myAppData.goal = ""
         myAppData.timeStart = nil
-        //print("project: ", myAppData.project, "task: ", myAppData.task, "place: ", myAppData.place, "goal: ", myAppData.goal )
+        myAppData.goalCompletion = ""
+        myAppData.excitement = ""
+        myAppData.tags = []
+        myAppData.timeEnd = nil
         
         //reference storyboard
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -133,10 +135,10 @@ class PreWorkCollectionViewController: UICollectionViewController {
             cell.homeButton.layer.cornerRadius = 15;
             cell.otherButton.layer.cornerRadius = 15;
             // add button actions
-            cell.workButton.addTarget(self, action: #selector(workIsPressed(_:)), for: UIControl.Event.touchUpInside)
-            cell.coffeeButton.addTarget(self, action: #selector(coffeeIsPressed(_:)), for: UIControl.Event.touchUpInside)
-            cell.homeButton.addTarget(self, action: #selector(homeIsPressed(_:)), for: UIControl.Event.touchUpInside)
-            cell.otherButton.addTarget(self, action: #selector(otherIsPressed(_:)), for: UIControl.Event.touchUpInside)
+            cell.workButton.addTarget(self, action: #selector(placeIsPressed(_:)), for: UIControl.Event.touchUpInside)
+            cell.coffeeButton.addTarget(self, action: #selector(placeIsPressed(_:)), for: UIControl.Event.touchUpInside)
+            cell.homeButton.addTarget(self, action: #selector(placeIsPressed(_:)), for: UIControl.Event.touchUpInside)
+            cell.otherButton.addTarget(self, action: #selector(placeIsPressed(_:)), for: UIControl.Event.touchUpInside)
             
             return cell
         }
@@ -208,25 +210,10 @@ class PreWorkCollectionViewController: UICollectionViewController {
         myAppData.task = textField.text ?? ""
     }
     
-    // when work is pressed, update the data app place
-    @objc func workIsPressed(_ button: UIButton) {
+    // when place is pressed, update the data app place
+    @objc func placeIsPressed(_ button: UIButton) {
         button.backgroundColor = .gray
-        myAppData.place = "work"
-    }
-    // when coffee is pressed, update the data app place
-    @objc func coffeeIsPressed(_ button: UIButton) {
-        button.backgroundColor = .gray
-        myAppData.place = "coffee shop"
-    }
-    // when home is pressed, update the data app place
-    @objc func homeIsPressed(_ button: UIButton) {
-        button.backgroundColor = .gray
-        myAppData.place = "home"
-    }
-    // when other is pressed, update the data app place
-    @objc func otherIsPressed(_ button: UIButton) {
-        button.backgroundColor = .gray
-        myAppData.place = "other"
+        myAppData.place = button.titleLabel?.text ?? ""
     }
     
     // when goal text field is changed, update the data app goal

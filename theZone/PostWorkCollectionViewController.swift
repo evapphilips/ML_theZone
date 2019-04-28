@@ -12,6 +12,9 @@ private let reuseIdentifier = "Cell"
 
 class PostWorkCollectionViewController: UICollectionViewController {
     
+    // connect app data to this view controller
+    let myAppData = AppData.shared
+    
     // reference flow layout for collection view pages
     let flowLayout = ZoomAndSnapUICollectionViewFlowLayout()
     
@@ -35,6 +38,10 @@ class PostWorkCollectionViewController: UICollectionViewController {
         // add target when cancel button is pressed
         cancelButton.addTarget(self, action: #selector(cancelButtonClicked(_:)), for: .touchUpInside)
         self.view.addSubview(cancelButton)
+        
+        // collect background data
+        // time/date end data
+        myAppData.timeEnd = NSDate()
 
 
         // Uncomment the following line to preserve selection between presentations
@@ -46,11 +53,23 @@ class PostWorkCollectionViewController: UICollectionViewController {
     
     // when cancel button is pressed go back to start view controller
     @objc func cancelButtonClicked(_ sender: UIButton){
+        // clear all the data variables
+        myAppData.project = ""
+        myAppData.task = ""
+        myAppData.place = ""
+        myAppData.goal = ""
+        myAppData.timeStart = nil
+        myAppData.goalCompletion = ""
+        myAppData.excitement = ""
+        myAppData.tags = []
+        myAppData.timeEnd = nil
+    
         //reference storyboard
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         // reference the next view controller (ie. stop view controller)
         let vc = storyboard.instantiateViewController(withIdentifier: "StartViewController") as! StartViewController
         self.present(vc, animated: false, completion: nil)
+        
     }
 
     /*
@@ -91,6 +110,10 @@ class PostWorkCollectionViewController: UICollectionViewController {
             cell.yesButton.layer.cornerRadius = 15
             cell.noButton.layer.cornerRadius = 15
             cell.mostlyButton.layer.cornerRadius = 15
+            // add button actions
+            cell.yesButton.addTarget(self, action: #selector(completeIsPressed(_:)), for: UIControl.Event.touchUpInside)
+            cell.noButton.addTarget(self, action: #selector(completeIsPressed(_:)), for: UIControl.Event.touchUpInside)
+            cell.mostlyButton.addTarget(self, action: #selector(completeIsPressed(_:)), for: UIControl.Event.touchUpInside)
             return cell
         }else if indexPath.row == 1{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ExciteCell", for: indexPath) as! ExciteCollectionViewCell
@@ -101,6 +124,10 @@ class PostWorkCollectionViewController: UICollectionViewController {
             cell.yesButton.layer.cornerRadius = 15
             cell.noButton.layer.cornerRadius = 15
             cell.mostlyButton.layer.cornerRadius = 15
+            // add button actions
+            cell.yesButton.addTarget(self, action: #selector(excitementIsPressed(_:)), for: UIControl.Event.touchUpInside)
+            cell.noButton.addTarget(self, action: #selector(excitementIsPressed(_:)), for: UIControl.Event.touchUpInside)
+            cell.mostlyButton.addTarget(self, action: #selector(excitementIsPressed(_:)), for: UIControl.Event.touchUpInside)
             return cell
         }else if indexPath.row == 2{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCell", for: indexPath) as! TagCollectionViewCell
@@ -115,6 +142,14 @@ class PostWorkCollectionViewController: UICollectionViewController {
             cell.sickButton.layer.cornerRadius = 15
             cell.screenButton.layer.cornerRadius = 15
             cell.otherButton.layer.cornerRadius = 15
+            // add button actions
+            cell.tiredButton.addTarget(self, action: #selector(tagIsPressed(_:)), for: UIControl.Event.touchUpInside)
+            cell.distractedButton.addTarget(self, action: #selector(tagIsPressed(_:)), for: UIControl.Event.touchUpInside)
+            cell.noCoffeeButton.addTarget(self, action: #selector(tagIsPressed(_:)), for: UIControl.Event.touchUpInside)
+            cell.hungryButton.addTarget(self, action: #selector(tagIsPressed(_:)), for: UIControl.Event.touchUpInside)
+            cell.sickButton.addTarget(self, action: #selector(tagIsPressed(_:)), for: UIControl.Event.touchUpInside)
+            cell.screenButton.addTarget(self, action: #selector(tagIsPressed(_:)), for: UIControl.Event.touchUpInside)
+            cell.otherButton.addTarget(self, action: #selector(tagIsPressed(_:)), for: UIControl.Event.touchUpInside)
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostSubmitCell", for: indexPath) as! PostSubmitCollectionViewCell
@@ -133,6 +168,27 @@ class PostWorkCollectionViewController: UICollectionViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "StartViewController") as! StartViewController
         self.present(vc, animated: false, completion: nil)
         
+        // print the data array
+        print("project:", myAppData.project, "task:", myAppData.task, "place:", myAppData.place, "goals:", myAppData.goal, "timeStart:", myAppData.timeStart ?? "", "goalComp:", myAppData.goalCompletion, "excitement:", myAppData.excitement, "tags:", myAppData.tags, "timeEnd:",  myAppData.timeEnd ?? "")
+        
+    }
+    
+    // when complete is pressed, update the data app complete
+    @objc func completeIsPressed(_ button: UIButton) {
+        button.backgroundColor = .gray
+        myAppData.excitement = button.titleLabel?.text ?? ""
+    }
+    
+    // when excitement is pressed, update the data app excitement
+    @objc func excitementIsPressed(_ button: UIButton) {
+        button.backgroundColor = .gray
+        myAppData.excitement = button.titleLabel?.text ?? ""
+    }
+    
+    // when tag is pressed, update the data app tags
+    @objc func tagIsPressed(_ button: UIButton) {
+        button.backgroundColor = .gray
+        myAppData.tags.append(button.titleLabel?.text ?? "")
     }
 
     // MARK: UICollectionViewDelegate
