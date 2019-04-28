@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 private let reuseIdentifier = "Cell"
 
@@ -162,14 +163,24 @@ class PostWorkCollectionViewController: UICollectionViewController {
     
     // when post submit button is pressed
     @objc func postSubmitClicked(_ sender: UIButton){
+        // when submit is pressed, send the work session data to the api
+        postData(project: myAppData.project, task: myAppData.task, place: myAppData.place, goal: myAppData.goal, timeStart: myAppData.timeStart, goalCompletion: myAppData.goalCompletion, excitement: myAppData.excitement, tags: myAppData.tags, timeEnd: myAppData.timeEnd)
         //reference storyboard
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         // reference the next view controller (ie. stop view controller)
         let vc = storyboard.instantiateViewController(withIdentifier: "StartViewController") as! StartViewController
         self.present(vc, animated: false, completion: nil)
         
-        // print the data array
-        print("project:", myAppData.project, "task:", myAppData.task, "place:", myAppData.place, "goals:", myAppData.goal, "timeStart:", myAppData.timeStart ?? "", "goalComp:", myAppData.goalCompletion, "excitement:", myAppData.excitement, "tags:", myAppData.tags, "timeEnd:",  myAppData.timeEnd ?? "")
+        // clear all the data variables
+        myAppData.project = ""
+        myAppData.task = ""
+        myAppData.place = ""
+        myAppData.goal = ""
+        myAppData.timeStart = nil
+        myAppData.goalCompletion = ""
+        myAppData.excitement = ""
+        myAppData.tags = []
+        myAppData.timeEnd = nil
         
     }
     
@@ -189,6 +200,31 @@ class PostWorkCollectionViewController: UICollectionViewController {
     @objc func tagIsPressed(_ button: UIButton) {
         button.backgroundColor = .gray
         myAppData.tags.append(button.titleLabel?.text ?? "")
+    }
+    
+    // make a POST request to the api when post submit is pressed
+    func postData(project: String, task: String, place: String, goal: String, timeStart: NSDate, goalCompletion: String, excitement: String, tags: [String], timeEnd: NSDate){
+        // set username and password from defaults
+        let username = UserDefaults.standard.string(forKey: "username") ?? ""
+        let password = UserDefaults.standard.string(forKey: "password") ?? ""
+        // set up api request credentials
+        let credentialData = "\(username):\(password)".data(using: String.Encoding.utf8)!
+        let base64Credentials = credentialData.base64EncodedString(options: [])
+        let headers = ["Authorization": "Basic \(base64Credentials)"]
+        // Make POST request
+        Alamofire.request("https://the-zone-api.herokuapp.com/api",
+                          method: .post,
+                          parameters: ["project":project, "task":task, "place":place, "goal":goal, "timeStart":timeStart, "goalCompletion":goalCompletion, "excitement":excitement, "tags":tags, "timeEnd":timeEnd],
+                          encoding: URLEncoding.default,
+                          headers:headers)
+            .validate()
+            .responseJSON { response in
+                if response.result.value != nil{
+                    print(response) // print the json data
+                }else {
+                    print("post failed")
+                }
+        }
     }
 
     // MARK: UICollectionViewDelegate
