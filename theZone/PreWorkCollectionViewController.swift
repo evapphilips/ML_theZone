@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 private let reuseIdentifier = "Cell"
 
@@ -20,6 +21,15 @@ class PreWorkCollectionViewController: UICollectionViewController {
     
     // connect cancel button
     var cancelButton: UIButton!
+    
+    // setup cancel alert
+    var cancelAlert: UIAlertController!
+    
+    // setup location
+    let locationManager = CLLocationManager()
+//    let latitude: Double
+//    let longitude: Double
+//    let description: String
     
 
     override func viewDidLoad() {
@@ -43,6 +53,18 @@ class PreWorkCollectionViewController: UICollectionViewController {
         // collect background data
         // time/date start data
         myAppData.timeStart = NSDate()
+        // location coordinates
+        locationManager.requestAlwaysAuthorization()
+        var currentLocation: CLLocation!
+        if( CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
+            CLLocationManager.authorizationStatus() ==  .authorizedAlways){
+            currentLocation = locationManager.location
+            myAppData.location = [currentLocation.coordinate.latitude, currentLocation.coordinate.longitude]
+        }else{
+            print("Location not authorized")
+        }
+        
+
         
 
         // Uncomment the following line to preserve selection between presentations
@@ -55,23 +77,39 @@ class PreWorkCollectionViewController: UICollectionViewController {
     
     // when cancel button is pressed go back to start view controller
     @objc func cancelButtonClicked(_ sender: UIButton){
-        // clear all the data variables
-        myAppData.project = ""
-        myAppData.task = ""
-        myAppData.place = ""
-        myAppData.goal = ""
-        myAppData.timeStart = nil
-        myAppData.goalCompletion = ""
-        myAppData.excitement = ""
-        myAppData.tags = []
-        myAppData.timeEnd = nil
-        
-        //reference storyboard
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        // reference the next view controller (ie. stop view controller)
-        let vc = storyboard.instantiateViewController(withIdentifier: "StartViewController") as! StartViewController
-        self.present(vc, animated: false, completion: nil)
-        
+        // show cancel alert
+        displayCancelAlert()
+    }
+    
+    // made cancel alert
+    func displayCancelAlert(){
+        // create cancel alert
+        cancelAlert = UIAlertController(title: nil, message: "Are you sure you want to delete this work session?", preferredStyle: .alert)
+        // create cancel action
+        let yesAction = UIAlertAction(title: "Yes", style: .default){ (_) in
+            // clear all the data variables
+            self.myAppData.project = ""
+            self.myAppData.task = ""
+            self.myAppData.place = ""
+            self.myAppData.goal = ""
+            self.myAppData.location = []
+            self.myAppData.timeStart = nil
+            self.myAppData.goalCompletion = ""
+            self.myAppData.excitement = ""
+            self.myAppData.tags = []
+            self.myAppData.timeEnd = nil
+            
+            //reference storyboard
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            // reference the next view controller (ie. stop view controller)
+            let vc = storyboard.instantiateViewController(withIdentifier: "StartViewController") as! StartViewController
+            self.present(vc, animated: false, completion: nil)
+        }
+        let noAction = UIAlertAction(title: "No", style: .cancel)
+        cancelAlert.addAction(yesAction)
+        cancelAlert.addAction(noAction)
+        // show login alert
+        self.present(cancelAlert, animated: true)
     }
 
     /*
@@ -159,29 +197,6 @@ class PreWorkCollectionViewController: UICollectionViewController {
             cell.preSubmitButton.addTarget(self, action: #selector(preSubmitClicked(_:)), for: .touchUpInside)
             return cell
         }
-        
-
-//        // Configure the cell's background and questions
-//        cell.layer.cornerRadius = 10
-//        cell.layer.borderColor = UIColor.white.cgColor
-//        if(indexPath.row<4){ // for the first 4 rows
-//            // show border
-//            cell.layer.borderWidth = 1
-//            // hide submit button
-//            cell.preSubmitButton.isHidden = true
-//            //set question label
-//            cell.questionLabel.text = preQuestions[indexPath.row]
-//        }else{
-//            // hide border
-//            cell.layer.borderWidth = 0
-//            // show sumbit button
-//            cell.preSubmitButton.layer.cornerRadius = 25;
-//            cell.preSubmitButton.isHidden = false
-//            // hide question
-//            cell.questionLabel.isHidden = true
-//        }
-        
-        //return cell
     }
     
     // when pre submit button is pressed
@@ -192,12 +207,12 @@ class PreWorkCollectionViewController: UICollectionViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "StopViewController") as! StopViewController
         self.present(vc, animated: false, completion: nil)
         
-        // print the data
-        print("project: ", myAppData.project)
-        print("task: ", myAppData.task)
-        print("place: ", myAppData.place)
-        print("goal: ", myAppData.goal)
-        print("timeStart: ", myAppData.timeStart ?? "")
+//        // print the data
+//        print("project: ", myAppData.project)
+//        print("task: ", myAppData.task)
+//        print("place: ", myAppData.place)
+//        print("goal: ", myAppData.goal)
+//        print("timeStart: ", myAppData.timeStart ?? "")
     }
     
     // when project text field is changed, update the data app project

@@ -21,6 +21,9 @@ class PostWorkCollectionViewController: UICollectionViewController {
     
     // connect cancel button
     var cancelButton: UIButton!
+    
+    // setup cancel alert
+    var cancelAlert: UIAlertController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,23 +57,39 @@ class PostWorkCollectionViewController: UICollectionViewController {
     
     // when cancel button is pressed go back to start view controller
     @objc func cancelButtonClicked(_ sender: UIButton){
-        // clear all the data variables
-        myAppData.project = ""
-        myAppData.task = ""
-        myAppData.place = ""
-        myAppData.goal = ""
-        myAppData.timeStart = nil
-        myAppData.goalCompletion = ""
-        myAppData.excitement = ""
-        myAppData.tags = []
-        myAppData.timeEnd = nil
+        // show cancel alert
+        displayCancelAlert()
+    }
     
-        //reference storyboard
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        // reference the next view controller (ie. stop view controller)
-        let vc = storyboard.instantiateViewController(withIdentifier: "StartViewController") as! StartViewController
-        self.present(vc, animated: false, completion: nil)
-        
+    // made cancel alert
+    func displayCancelAlert(){
+        // create cancel alert
+        cancelAlert = UIAlertController(title: nil, message: "Are you sure you want to delete this work session?", preferredStyle: .alert)
+        // create cancel action
+        let yesAction = UIAlertAction(title: "Yes", style: .default){ (_) in
+            // clear all the data variables
+            self.myAppData.project = ""
+            self.myAppData.task = ""
+            self.myAppData.place = ""
+            self.myAppData.goal = ""
+            self.myAppData.location = []
+            self.myAppData.timeStart = nil
+            self.myAppData.goalCompletion = ""
+            self.myAppData.excitement = ""
+            self.myAppData.tags = []
+            self.myAppData.timeEnd = nil
+            
+            //reference storyboard
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            // reference the next view controller (ie. stop view controller)
+            let vc = storyboard.instantiateViewController(withIdentifier: "StartViewController") as! StartViewController
+            self.present(vc, animated: false, completion: nil)
+        }
+        let noAction = UIAlertAction(title: "No", style: .cancel)
+        cancelAlert.addAction(yesAction)
+        cancelAlert.addAction(noAction)
+        // show login alert
+        self.present(cancelAlert, animated: true)
     }
 
     /*
@@ -164,7 +183,7 @@ class PostWorkCollectionViewController: UICollectionViewController {
     // when post submit button is pressed
     @objc func postSubmitClicked(_ sender: UIButton){
         // when submit is pressed, send the work session data to the api
-        postData(project: myAppData.project, task: myAppData.task, place: myAppData.place, goal: myAppData.goal, timeStart: myAppData.timeStart, goalCompletion: myAppData.goalCompletion, excitement: myAppData.excitement, tags: myAppData.tags, timeEnd: myAppData.timeEnd)
+        postData(project: myAppData.project, task: myAppData.task, place: myAppData.place, goal: myAppData.goal, location: myAppData.location, timeStart: myAppData.timeStart, goalCompletion: myAppData.goalCompletion, excitement: myAppData.excitement, tags: myAppData.tags, timeEnd: myAppData.timeEnd)
         //reference storyboard
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         // reference the next view controller (ie. stop view controller)
@@ -176,6 +195,7 @@ class PostWorkCollectionViewController: UICollectionViewController {
         myAppData.task = ""
         myAppData.place = ""
         myAppData.goal = ""
+        myAppData.location = []
         myAppData.timeStart = nil
         myAppData.goalCompletion = ""
         myAppData.excitement = ""
@@ -203,7 +223,7 @@ class PostWorkCollectionViewController: UICollectionViewController {
     }
     
     // make a POST request to the api when post submit is pressed
-    func postData(project: String, task: String, place: String, goal: String, timeStart: NSDate, goalCompletion: String, excitement: String, tags: [String], timeEnd: NSDate){
+    func postData(project: String, task: String, place: String, goal: String, location: [Double], timeStart: NSDate, goalCompletion: String, excitement: String, tags: [String], timeEnd: NSDate){
         // set username and password from defaults
         let username = UserDefaults.standard.string(forKey: "username") ?? ""
         let password = UserDefaults.standard.string(forKey: "password") ?? ""
@@ -214,7 +234,7 @@ class PostWorkCollectionViewController: UICollectionViewController {
         // Make POST request
         Alamofire.request("https://the-zone-api.herokuapp.com/api",
                           method: .post,
-                          parameters: ["project":project, "task":task, "place":place, "goal":goal, "timeStart":timeStart, "goalCompletion":goalCompletion, "excitement":excitement, "tags":tags, "timeEnd":timeEnd],
+                          parameters: ["project":project, "task":task, "place":place, "goal":goal, "location":location, "timeStart":timeStart, "goalCompletion":goalCompletion, "excitement":excitement, "tags":tags, "timeEnd":timeEnd],
                           encoding: URLEncoding.default,
                           headers:headers)
             .validate()

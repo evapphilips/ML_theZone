@@ -19,6 +19,9 @@ class AppData{
     var task:String = ""
     var place:String = ""
     var goal:String = ""
+    
+    var location:[Double] = []
+    
     var timeStart:NSDate!
     var goalCompletion:String = ""
     var excitement:String = ""
