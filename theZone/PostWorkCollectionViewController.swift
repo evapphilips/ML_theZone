@@ -198,7 +198,7 @@ class PostWorkCollectionViewController: UICollectionViewController {
     // when complete is pressed, update the data app complete
     @objc func completeIsPressed(_ button: UIButton) {
         button.backgroundColor = .gray
-        myAppData.excitement = button.titleLabel?.text ?? ""
+        myAppData.goalCompletion = button.titleLabel?.text ?? ""
     }
     
     // when excitement is pressed, update the data app excitement

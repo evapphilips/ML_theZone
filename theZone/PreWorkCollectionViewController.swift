@@ -108,7 +108,7 @@ class PreWorkCollectionViewController: UICollectionViewController, AVAudioRecord
             //let long = myAppData.location[1]
             
             let loc = String("\(myAppData.location[0])" + "," + "\(myAppData.location[0])")
-            let weatherUrl = baseWeatherUrl + weatherAPIKey + loc
+            let weatherUrl = baseWeatherUrl + weatherAPIKey + "/" + loc
             //print(weatherUrl)
             
             Alamofire.request(weatherUrl, method: .get).responseJSON{
