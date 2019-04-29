@@ -15,7 +15,7 @@ class AppData{
     private init() {}
     
     // set api key for weather data
-    var apiKey:String = "2b7fb64498f93bf54271e6f446b51050/" // ADD_YOUR_API_KEY_HERE
+    var apiKey:String = "ADD_YOUR_API_KEY_HERE" // ADD_YOUR_API_KEY_HERE
     
     // set app variables
     var project:String = ""
