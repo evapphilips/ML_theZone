@@ -24,6 +24,10 @@ class PostWorkCollectionViewController: UICollectionViewController {
     
     // setup cancel alert
     var cancelAlert: UIAlertController!
+    
+    // setup saved alert
+    var savedAlert: UIAlertController!
+    var failedAlert: UIAlertController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +77,7 @@ class PostWorkCollectionViewController: UICollectionViewController {
             self.myAppData.place = ""
             self.myAppData.goal = ""
             self.myAppData.location = []
+            self.myAppData.weather = []
             self.myAppData.sound = ""
             self.myAppData.timeStart = nil
             self.myAppData.goalCompletion = ""
@@ -89,7 +94,7 @@ class PostWorkCollectionViewController: UICollectionViewController {
         let noAction = UIAlertAction(title: "No", style: .cancel)
         cancelAlert.addAction(yesAction)
         cancelAlert.addAction(noAction)
-        // show login alert
+        // show cancel alert
         self.present(cancelAlert, animated: true)
     }
 
@@ -184,25 +189,9 @@ class PostWorkCollectionViewController: UICollectionViewController {
     // when post submit button is pressed
     @objc func postSubmitClicked(_ sender: UIButton){
         // when submit is pressed, send the work session data to the api
-        postData(project: myAppData.project, task: myAppData.task, place: myAppData.place, goal: myAppData.goal, location: myAppData.location, sound: myAppData.sound, timeStart: myAppData.timeStart, goalCompletion: myAppData.goalCompletion, excitement: myAppData.excitement, tags: myAppData.tags, timeEnd: myAppData.timeEnd)
-        //reference storyboard
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        // reference the next view controller (ie. stop view controller)
-        let vc = storyboard.instantiateViewController(withIdentifier: "StartViewController") as! StartViewController
-        self.present(vc, animated: false, completion: nil)
+        postData(project: myAppData.project, task: myAppData.task, place: myAppData.place, goal: myAppData.goal, location: myAppData.location, weather: myAppData.weather, sound: myAppData.sound, timeStart: myAppData.timeStart, goalCompletion: myAppData.goalCompletion, excitement: myAppData.excitement, tags: myAppData.tags, timeEnd: myAppData.timeEnd)
+
         
-        // clear all the data variables
-        myAppData.project = ""
-        myAppData.task = ""
-        myAppData.place = ""
-        myAppData.goal = ""
-        myAppData.location = []
-        myAppData.sound = ""
-        myAppData.timeStart = nil
-        myAppData.goalCompletion = ""
-        myAppData.excitement = ""
-        myAppData.tags = []
-        myAppData.timeEnd = nil
         
     }
     
@@ -225,7 +214,7 @@ class PostWorkCollectionViewController: UICollectionViewController {
     }
     
     // make a POST request to the api when post submit is pressed
-    func postData(project: String, task: String, place: String, goal: String, location: [Double], sound: String, timeStart: NSDate, goalCompletion: String, excitement: String, tags: [String], timeEnd: NSDate){
+    func postData(project: String, task: String, place: String, goal: String, location: [Double], weather: [String], sound: String, timeStart: NSDate, goalCompletion: String, excitement: String, tags: [String], timeEnd: NSDate){
         // set username and password from defaults
         let username = UserDefaults.standard.string(forKey: "username") ?? ""
         let password = UserDefaults.standard.string(forKey: "password") ?? ""
@@ -236,18 +225,68 @@ class PostWorkCollectionViewController: UICollectionViewController {
         // Make POST request
         Alamofire.request("https://the-zone-api.herokuapp.com/api",
                           method: .post,
-                          parameters: ["project":project, "task":task, "place":place, "goal":goal, "location":location, "sound": sound, "timeStart":timeStart, "goalCompletion":goalCompletion, "excitement":excitement, "tags":tags, "timeEnd":timeEnd],
+                          parameters: ["project":project, "task":task, "place":place, "goal":goal, "location":location, "weather":weather, "sound": sound, "timeStart":timeStart, "goalCompletion":goalCompletion, "excitement":excitement, "tags":tags, "timeEnd":timeEnd],
                           encoding: URLEncoding.default,
                           headers:headers)
             .validate()
             .responseJSON { response in
                 if response.result.value != nil{
-                    print(response) // print the json data
+                    //print(response) // print the json data
+                    // show saved alert
+                    self.displaySavedAlert()
+                    
                 }else {
-                    print("post failed")
+                    //print("post failed")
+                    self.displayFailedAlert()
                 }
         }
     }
+    
+    // make save alert
+    func displaySavedAlert(){
+        // create save alert
+        savedAlert = UIAlertController(title: nil, message: "your work session has been saved", preferredStyle: .alert)
+        // create ok action
+        let okayAction = UIAlertAction(title: "OK", style: .default){ (_) in
+            // clear all the data variables
+            self.myAppData.project = ""
+            self.myAppData.task = ""
+            self.myAppData.place = ""
+            self.myAppData.goal = ""
+            self.myAppData.location = []
+            self.myAppData.weather = []
+            self.myAppData.sound = ""
+            self.myAppData.timeStart = nil
+            self.myAppData.goalCompletion = ""
+            self.myAppData.excitement = ""
+            self.myAppData.tags = []
+            self.myAppData.timeEnd = nil
+            //reference storyboard
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            // reference the next view controller (ie. stop view controller)
+            let vc = storyboard.instantiateViewController(withIdentifier: "StartViewController") as! StartViewController
+            self.present(vc, animated: false, completion: nil)
+            
+        }
+        // show action
+        savedAlert.addAction(okayAction)
+        // show save alert
+        self.present(savedAlert, animated: true)
+    }
+    
+    // make failed alert
+    func displayFailedAlert(){
+        // create fail alert
+        failedAlert = UIAlertController(title: nil, message: "something went wrong, your work session was not saved", preferredStyle: .alert)
+        // create ok action
+        let okayAction = UIAlertAction(title: "OK", style: .cancel)
+        // show action
+        failedAlert.addAction(okayAction)
+        // show failed alert
+        self.present(failedAlert, animated: true)
+    }
+    
+    
 
     // MARK: UICollectionViewDelegate
 

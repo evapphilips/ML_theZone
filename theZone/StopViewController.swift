@@ -73,6 +73,7 @@ class StopViewController: UIViewController {
             self.myAppData.place = ""
             self.myAppData.goal = ""
             self.myAppData.location = []
+            self.myAppData.weather = []
             self.myAppData.sound = ""
             self.myAppData.timeStart = nil
             self.myAppData.goalCompletion = ""

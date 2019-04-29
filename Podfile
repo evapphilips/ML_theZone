@@ -7,5 +7,6 @@ target 'theZone' do
 
   # Pods for theZone
   pod 'Alamofire'
+  pod 'SwiftyJSON'
 
 end

@@ -9,10 +9,12 @@
 import UIKit
 import CoreLocation
 import AVFoundation
+import Alamofire
+import SwiftyJSON
 
 private let reuseIdentifier = "Cell"
 
-class PreWorkCollectionViewController: UICollectionViewController, AVAudioRecorderDelegate {
+class PreWorkCollectionViewController: UICollectionViewController, AVAudioRecorderDelegate, UITextFieldDelegate {
     
     // connect app data to this view controller
     let myAppData = AppData.shared
@@ -32,10 +34,14 @@ class PreWorkCollectionViewController: UICollectionViewController, AVAudioRecord
     // setup sound level
     var timer: Timer?
     var recorder: AVAudioRecorder!
+
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setupHideKeyboardOnTap()
+        
         
         // set up collection view
         guard let collectionView = collectionView else { fatalError() }
@@ -64,6 +70,7 @@ class PreWorkCollectionViewController: UICollectionViewController, AVAudioRecord
             myAppData.location = [currentLocation.coordinate.latitude, currentLocation.coordinate.longitude]
         }else{
             print("Location not authorized")
+            myAppData.location = []
         }
         // sound level
         self.requestSoundAuthorization()
@@ -89,9 +96,42 @@ class PreWorkCollectionViewController: UICollectionViewController, AVAudioRecord
             timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(getSoundLevel(_:)), userInfo: nil, repeats: true)
         } catch {
             print("Fail to record.")
+            myAppData.sound = ""
         }
         
-
+        // weather data
+        if(myAppData.location != []){
+            print(myAppData.location)
+            let baseWeatherUrl = "https://api.darksky.net/forecast/"
+            let weatherAPIKey = myAppData.apiKey
+            //let lat = myAppData.location[0]
+            //let long = myAppData.location[1]
+            
+            let loc = String("\(myAppData.location[0])" + "," + "\(myAppData.location[0])")
+            let weatherUrl = baseWeatherUrl + weatherAPIKey + loc
+            //print(weatherUrl)
+            
+            Alamofire.request(weatherUrl, method: .get).responseJSON{
+                response in
+                if response.result.isSuccess{
+                    //print("Everything is fine")
+                    let weatherJSON: JSON = JSON(response.result.value!)
+                    let weatherTemp = String("\(weatherJSON["currently"]["temperature"])")
+                    let weatherSummary = String("\(weatherJSON["currently"]["summary"])")
+                    let weatherPercipType = String("\(weatherJSON["currently"]["percipType"])")
+                    self.myAppData.weather.append(weatherTemp)
+                    self.myAppData.weather.append(weatherSummary)
+                    self.myAppData.weather.append(weatherPercipType)
+                    
+                    //self.myAppData.weather = [weatherTemp, weatherSummary, weatherPercipType]
+                    print("weather: ", self.myAppData.weather)
+                }else{
+                print("Error \(String(describing: response.result.error))")
+                }
+            }
+        }else{
+            myAppData.weather = []
+        }
     }
     
     // when cancel button is pressed go back to start view controller
@@ -112,6 +152,7 @@ class PreWorkCollectionViewController: UICollectionViewController, AVAudioRecord
             self.myAppData.place = ""
             self.myAppData.goal = ""
             self.myAppData.location = []
+            self.myAppData.weather = []
             self.myAppData.sound = ""
             self.myAppData.timeStart = nil
             self.myAppData.goalCompletion = ""
@@ -194,6 +235,8 @@ class PreWorkCollectionViewController: UICollectionViewController, AVAudioRecord
             cell.preQuestionLabel.text = preQuestions[indexPath.row]
             // add action to project text field
             cell.projectTextField.addTarget(self, action: #selector(projectTextFieldDidChange(_:)), for: .editingChanged)
+            // add delegate for text field return button
+            cell.projectTextField.delegate = self
             return cell
         }else if indexPath.row == 1{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TaskCell", for: indexPath) as! TaskCollectionViewCell
@@ -203,6 +246,8 @@ class PreWorkCollectionViewController: UICollectionViewController, AVAudioRecord
             cell.preQuestionLabel.text = preQuestions[indexPath.row]
             // add action to task text field
             cell.taskTextField.addTarget(self, action: #selector(taskTextFieldDidChange(_:)), for: .editingChanged)
+            // add delegate for text field return button
+            cell.taskTextField.delegate = self
             return cell
         }else if indexPath.row == 2{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlaceCell", for: indexPath) as! PlaceCollectionViewCell
@@ -220,7 +265,6 @@ class PreWorkCollectionViewController: UICollectionViewController, AVAudioRecord
             cell.coffeeButton.addTarget(self, action: #selector(placeIsPressed(_:)), for: UIControl.Event.touchUpInside)
             cell.homeButton.addTarget(self, action: #selector(placeIsPressed(_:)), for: UIControl.Event.touchUpInside)
             cell.otherButton.addTarget(self, action: #selector(placeIsPressed(_:)), for: UIControl.Event.touchUpInside)
-            
             return cell
         }
         else if indexPath.row == 3{
@@ -231,6 +275,8 @@ class PreWorkCollectionViewController: UICollectionViewController, AVAudioRecord
             cell.preQuestionLabel.text = preQuestions[indexPath.row]
             // add goal to project text field
             cell.goalTextField.addTarget(self, action: #selector(goalTextFieldDidChange(_:)), for: .editingChanged)
+            // add delegate for text field return button
+            cell.goalTextField.delegate = self
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PreSubmitCell", for: indexPath) as! PreSubmitCollectionViewCell
@@ -249,13 +295,6 @@ class PreWorkCollectionViewController: UICollectionViewController, AVAudioRecord
         // reference the next view controller (ie. stop view controller)
         let vc = storyboard.instantiateViewController(withIdentifier: "StopViewController") as! StopViewController
         self.present(vc, animated: false, completion: nil)
-        
-//        // print the data
-//        print("project: ", myAppData.project)
-//        print("task: ", myAppData.task)
-//        print("place: ", myAppData.place)
-//        print("goal: ", myAppData.goal)
-//        print("timeStart: ", myAppData.timeStart ?? "")
     }
     
     // when project text field is changed, update the data app project
@@ -279,6 +318,11 @@ class PreWorkCollectionViewController: UICollectionViewController, AVAudioRecord
         myAppData.goal = textField.text ?? ""
     }
     
+    // when return is pressed, dismiss the keyboard
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return(true)
+    }
     
 
     // MARK: UICollectionViewDelegate
@@ -321,3 +365,17 @@ fileprivate func convertFromAVAudioSessionCategory(_ input: AVAudioSession.Categ
 
 
 
+extension UIViewController {
+    /// Call this once to dismiss open keyboards by tapping anywhere in the view controller
+    func setupHideKeyboardOnTap() {
+        self.view.addGestureRecognizer(self.endEditingRecognizer())
+        self.navigationController?.navigationBar.addGestureRecognizer(self.endEditingRecognizer())
+    }
+    
+    /// Dismisses the keyboard from self.view
+    private func endEditingRecognizer() -> UIGestureRecognizer {
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(self.view.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        return tap
+    }
+}

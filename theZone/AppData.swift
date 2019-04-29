@@ -14,6 +14,9 @@ class AppData{
     
     private init() {}
     
+    // set api key for weather data
+    var apiKey:String = "2b7fb64498f93bf54271e6f446b51050/" // ADD_YOUR_API_KEY_HERE
+    
     // set app variables
     var project:String = ""
     var task:String = ""
@@ -21,6 +24,7 @@ class AppData{
     var goal:String = ""
     
     var location:[Double] = []
+    var weather:[String] = []
     var sound:String = ""
     
     var timeStart:NSDate!

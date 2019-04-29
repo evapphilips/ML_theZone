@@ -42,7 +42,7 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>theZone stores your location data in your account for each work session</string>
+	<string>theZone stores your location data in your account for each work session and uses it to get weather data</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Only when in use</string>
 	<key>NSMicrophoneUsageDescription</key>
