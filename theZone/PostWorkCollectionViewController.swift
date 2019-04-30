@@ -130,12 +130,19 @@ class PostWorkCollectionViewController: UICollectionViewController {
         if indexPath.row == 0{
            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CompleteCell", for: indexPath) as! CompleteCollectionViewCell
             cell.layer.cornerRadius = 10
-            cell.layer.borderColor = UIColor.white.cgColor
-            cell.layer.borderWidth = 1
+//            cell.layer.borderColor = UIColor.white.cgColor
+//            cell.layer.borderWidth = 1
+            cell.backgroundColor = .white
             cell.postQuestionLabel.text = postQuestions[indexPath.row]
             cell.yesButton.layer.cornerRadius = 15
+            cell.yesButton.layer.borderColor = UIColor.gray.cgColor;
+            cell.yesButton.layer.borderWidth = 1;
             cell.noButton.layer.cornerRadius = 15
+            cell.noButton.layer.borderColor = UIColor.gray.cgColor;
+            cell.noButton.layer.borderWidth = 1;
             cell.mostlyButton.layer.cornerRadius = 15
+            cell.mostlyButton.layer.borderColor = UIColor.gray.cgColor;
+            cell.mostlyButton.layer.borderWidth = 1;
             // add button actions
             cell.yesButton.addTarget(self, action: #selector(completeIsPressed(_:)), for: UIControl.Event.touchUpInside)
             cell.noButton.addTarget(self, action: #selector(completeIsPressed(_:)), for: UIControl.Event.touchUpInside)
@@ -144,12 +151,19 @@ class PostWorkCollectionViewController: UICollectionViewController {
         }else if indexPath.row == 1{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ExciteCell", for: indexPath) as! ExciteCollectionViewCell
             cell.layer.cornerRadius = 10
-            cell.layer.borderColor = UIColor.white.cgColor
-            cell.layer.borderWidth = 1
+//            cell.layer.borderColor = UIColor.white.cgColor
+//            cell.layer.borderWidth = 1
+            cell.backgroundColor = .white
             cell.postQuestionLabel.text = postQuestions[indexPath.row]
             cell.yesButton.layer.cornerRadius = 15
+            cell.yesButton.layer.borderColor = UIColor.gray.cgColor;
+            cell.yesButton.layer.borderWidth = 1;
             cell.noButton.layer.cornerRadius = 15
+            cell.noButton.layer.borderColor = UIColor.gray.cgColor;
+            cell.noButton.layer.borderWidth = 1;
             cell.mostlyButton.layer.cornerRadius = 15
+            cell.mostlyButton.layer.borderColor = UIColor.gray.cgColor;
+            cell.mostlyButton.layer.borderWidth = 1;
             // add button actions
             cell.yesButton.addTarget(self, action: #selector(excitementIsPressed(_:)), for: UIControl.Event.touchUpInside)
             cell.noButton.addTarget(self, action: #selector(excitementIsPressed(_:)), for: UIControl.Event.touchUpInside)
@@ -158,16 +172,31 @@ class PostWorkCollectionViewController: UICollectionViewController {
         }else if indexPath.row == 2{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCell", for: indexPath) as! TagCollectionViewCell
             cell.layer.cornerRadius = 10
-            cell.layer.borderColor = UIColor.white.cgColor
-            cell.layer.borderWidth = 1
+//            cell.layer.borderColor = UIColor.white.cgColor
+//            cell.layer.borderWidth = 1
+            cell.backgroundColor = .white
             cell.postQuestionLabel.text = postQuestions[indexPath.row]
             cell.tiredButton.layer.cornerRadius = 15
+            cell.tiredButton.layer.borderColor = UIColor.gray.cgColor;
+            cell.tiredButton.layer.borderWidth = 1;
             cell.distractedButton.layer.cornerRadius = 15
+            cell.distractedButton.layer.borderColor = UIColor.gray.cgColor;
+            cell.distractedButton.layer.borderWidth = 1;
             cell.noCoffeeButton.layer.cornerRadius = 15
+            cell.noCoffeeButton.layer.borderColor = UIColor.gray.cgColor;
+            cell.noCoffeeButton.layer.borderWidth = 1;
             cell.hungryButton.layer.cornerRadius = 15
+            cell.hungryButton.layer.borderColor = UIColor.gray.cgColor;
+            cell.hungryButton.layer.borderWidth = 1;
             cell.sickButton.layer.cornerRadius = 15
+            cell.sickButton.layer.borderColor = UIColor.gray.cgColor;
+            cell.sickButton.layer.borderWidth = 1;
             cell.screenButton.layer.cornerRadius = 15
+            cell.screenButton.layer.borderColor = UIColor.gray.cgColor;
+            cell.screenButton.layer.borderWidth = 1;
             cell.otherButton.layer.cornerRadius = 15
+            cell.otherButton.layer.borderColor = UIColor.gray.cgColor;
+            cell.otherButton.layer.borderWidth = 1;
             // add button actions
             cell.tiredButton.addTarget(self, action: #selector(tagIsPressed(_:)), for: UIControl.Event.touchUpInside)
             cell.distractedButton.addTarget(self, action: #selector(tagIsPressed(_:)), for: UIControl.Event.touchUpInside)

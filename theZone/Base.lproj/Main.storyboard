@@ -58,7 +58,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.87058823529411766" green="0.53725490196078429" blue="0.53725490196078429" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.58431372549019611" green="0.75686274509803919" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="3Xh-Zo-aPP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1jm-Y4-W7t"/>
                             <constraint firstItem="s1j-Nr-rLH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Hv3-68-yLY"/>
@@ -85,7 +85,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" id="FaA-ci-aa8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.87058823529411766" green="0.53725490196078429" blue="0.53725490196078429" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.58431372549019611" green="0.75686274509803919" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BCg-Ac-XA4">
                             <size key="itemSize" width="188" height="174"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -423,7 +423,7 @@
                                 <color key="highlightedColor" red="0.32156862749999998" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.87058823529411766" green="0.53725490196078429" blue="0.53725490196078429" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.90980392156862744" green="0.5725490196078431" blue="0.5725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qdj-dh-bhP" firstAttribute="centerX" secondItem="udW-ms-Hsu" secondAttribute="centerX" id="Dfe-kl-inZ"/>
                             <constraint firstItem="ar2-u1-N3A" firstAttribute="centerX" secondItem="udW-ms-Hsu" secondAttribute="centerX" id="TAX-4U-pbU"/>
@@ -455,7 +455,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" id="pIo-0s-YeO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.87058823529411766" green="0.53725490196078429" blue="0.53725490196078429" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.90980392156862744" green="0.5725490196078431" blue="0.5725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="quC-MX-B48">
                             <size key="itemSize" width="207" height="199"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
