@@ -232,6 +232,11 @@ class PreWorkCollectionViewController: UICollectionViewController, AVAudioRecord
             cell.layer.cornerRadius = 10
 //            cell.layer.borderColor = UIColor.white.cgColor
 //            cell.layer.borderWidth = 1
+            cell.layer.shadowColor = UIColor.darkGray.cgColor
+            cell.layer.shadowRadius = 4
+            cell.layer.shadowOpacity = 0.5
+            cell.layer.masksToBounds = false
+            cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius:  cell.layer.cornerRadius).cgPath
             cell.backgroundColor = .white
             cell.preQuestionLabel.text = preQuestions[indexPath.row]
             // add action to project text field
@@ -244,6 +249,11 @@ class PreWorkCollectionViewController: UICollectionViewController, AVAudioRecord
             cell.layer.cornerRadius = 10
             //            cell.layer.borderColor = UIColor.white.cgColor
             //            cell.layer.borderWidth = 1
+            cell.layer.shadowColor = UIColor.darkGray.cgColor
+            cell.layer.shadowRadius = 4
+            cell.layer.shadowOpacity = 0.5
+            cell.layer.masksToBounds = false
+            cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius:  cell.layer.cornerRadius).cgPath
             cell.backgroundColor = .white
             cell.preQuestionLabel.text = preQuestions[indexPath.row]
             // add action to task text field
@@ -256,6 +266,11 @@ class PreWorkCollectionViewController: UICollectionViewController, AVAudioRecord
             cell.layer.cornerRadius = 10
             //            cell.layer.borderColor = UIColor.white.cgColor
             //            cell.layer.borderWidth = 1
+            cell.layer.shadowColor = UIColor.darkGray.cgColor
+            cell.layer.shadowRadius = 4
+            cell.layer.shadowOpacity = 0.5
+            cell.layer.masksToBounds = false
+            cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius:  cell.layer.cornerRadius).cgPath
             cell.backgroundColor = .white
             cell.preQuestionLabel.text = preQuestions[indexPath.row]
             // set button radius
@@ -283,6 +298,11 @@ class PreWorkCollectionViewController: UICollectionViewController, AVAudioRecord
             cell.layer.cornerRadius = 10
             //            cell.layer.borderColor = UIColor.white.cgColor
             //            cell.layer.borderWidth = 1
+            cell.layer.shadowColor = UIColor.darkGray.cgColor
+            cell.layer.shadowRadius = 4
+            cell.layer.shadowOpacity = 0.5
+            cell.layer.masksToBounds = false
+            cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius:  cell.layer.cornerRadius).cgPath
             cell.backgroundColor = .white
             cell.preQuestionLabel.text = preQuestions[indexPath.row]
             // add goal to project text field
@@ -294,6 +314,9 @@ class PreWorkCollectionViewController: UICollectionViewController, AVAudioRecord
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PreSubmitCell", for: indexPath) as! PreSubmitCollectionViewCell
             // format submit button
             cell.preSubmitButton.layer.cornerRadius = 25
+            cell.preSubmitButton.layer.shadowColor = UIColor.darkGray.cgColor
+            cell.preSubmitButton.layer.shadowRadius = 4
+            cell.preSubmitButton.layer.shadowOpacity = 0.5
             // call the change view method when submit is pressed
             cell.preSubmitButton.addTarget(self, action: #selector(preSubmitClicked(_:)), for: .touchUpInside)
             return cell

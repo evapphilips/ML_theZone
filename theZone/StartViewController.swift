@@ -34,7 +34,11 @@ class StartViewController: UIViewController {
         super.viewDidLoad()
         
         // format start button appearance
-        startButton.layer.cornerRadius = 30;
+        startButton.layer.cornerRadius = 30
+        startButton.layer.shadowColor = UIColor.darkGray.cgColor
+        startButton.layer.shadowRadius = 4
+        startButton.layer.shadowOpacity = 0.5
+        startButton.layer.shadowOffset = CGSize(width: 0, height: 0)
     }
     
     override func viewDidAppear(_ animated: Bool) {

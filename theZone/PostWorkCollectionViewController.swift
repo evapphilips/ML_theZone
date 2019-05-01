@@ -132,6 +132,11 @@ class PostWorkCollectionViewController: UICollectionViewController {
             cell.layer.cornerRadius = 10
 //            cell.layer.borderColor = UIColor.white.cgColor
 //            cell.layer.borderWidth = 1
+            cell.layer.shadowColor = UIColor.darkGray.cgColor
+            cell.layer.shadowRadius = 4
+            cell.layer.shadowOpacity = 0.5
+            cell.layer.masksToBounds = false
+            cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius:  cell.layer.cornerRadius).cgPath
             cell.backgroundColor = .white
             cell.postQuestionLabel.text = postQuestions[indexPath.row]
             cell.yesButton.layer.cornerRadius = 15
@@ -153,6 +158,11 @@ class PostWorkCollectionViewController: UICollectionViewController {
             cell.layer.cornerRadius = 10
 //            cell.layer.borderColor = UIColor.white.cgColor
 //            cell.layer.borderWidth = 1
+            cell.layer.shadowColor = UIColor.darkGray.cgColor
+            cell.layer.shadowRadius = 4
+            cell.layer.shadowOpacity = 0.5
+            cell.layer.masksToBounds = false
+            cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius:  cell.layer.cornerRadius).cgPath
             cell.backgroundColor = .white
             cell.postQuestionLabel.text = postQuestions[indexPath.row]
             cell.yesButton.layer.cornerRadius = 15
@@ -174,6 +184,11 @@ class PostWorkCollectionViewController: UICollectionViewController {
             cell.layer.cornerRadius = 10
 //            cell.layer.borderColor = UIColor.white.cgColor
 //            cell.layer.borderWidth = 1
+            cell.layer.shadowColor = UIColor.darkGray.cgColor
+            cell.layer.shadowRadius = 4
+            cell.layer.shadowOpacity = 0.5
+            cell.layer.masksToBounds = false
+            cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius:  cell.layer.cornerRadius).cgPath
             cell.backgroundColor = .white
             cell.postQuestionLabel.text = postQuestions[indexPath.row]
             cell.tiredButton.layer.cornerRadius = 15
@@ -209,6 +224,9 @@ class PostWorkCollectionViewController: UICollectionViewController {
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostSubmitCell", for: indexPath) as! PostSubmitCollectionViewCell
             cell.postSubmitButton.layer.cornerRadius = 25;
+            cell.postSubmitButton.layer.shadowColor = UIColor.darkGray.cgColor
+            cell.postSubmitButton.layer.shadowRadius = 4
+            cell.postSubmitButton.layer.shadowOpacity = 0.5
             cell.postSubmitButton.addTarget(self, action: #selector(postSubmitClicked(_:)), for: .touchUpInside)
            return cell
         }

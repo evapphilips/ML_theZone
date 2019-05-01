@@ -31,6 +31,9 @@ class StopViewController: UIViewController {
 
         // format start button appearance
         stopButton.layer.cornerRadius = 30;
+        stopButton.layer.shadowColor = UIColor.darkGray.cgColor
+        stopButton.layer.shadowRadius = 4
+        stopButton.layer.shadowOpacity = 0.5
         
         // change project label to current project
         if(myAppData.project != ""){
