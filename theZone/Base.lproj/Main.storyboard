@@ -19,13 +19,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lets get in the work zone" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Xh-Zo-aPP">
-                                <rect key="frame" x="87" y="283" width="240" height="170"/>
+                                <rect key="frame" x="87" y="223" width="240" height="170"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="170" id="8u7-eq-pJz"/>
                                     <constraint firstAttribute="width" constant="240" id="tBV-ja-7mX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="46"/>
-                                <color key="textColor" red="0.32156862745098036" green="0.27843137254901962" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejA-0i-eLF">
@@ -36,14 +36,14 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <state key="normal" title="logout">
-                                    <color key="titleColor" red="0.32156862749999998" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="logoutButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="946-LF-UxO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1j-Nr-rLH">
-                                <rect key="frame" x="92" y="498" width="230" height="60"/>
+                                <rect key="frame" x="92" y="458" width="230" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="230" id="5fM-kh-05K"/>
@@ -58,14 +58,14 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.58431372549019611" green="0.75686274509803919" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.65490196078431373" green="0.85098039215686272" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="3Xh-Zo-aPP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1jm-Y4-W7t"/>
-                            <constraint firstItem="3Xh-Zo-aPP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-80" id="6pG-tn-Opm"/>
+                            <constraint firstItem="3Xh-Zo-aPP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-140" id="6pG-tn-Opm"/>
                             <constraint firstItem="s1j-Nr-rLH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Hv3-68-yLY"/>
                             <constraint firstItem="ejA-0i-eLF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="LfC-NK-IrG"/>
                             <constraint firstItem="ejA-0i-eLF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="PBF-6e-ByF"/>
-                            <constraint firstItem="s1j-Nr-rLH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="80" id="olE-47-3Cw"/>
+                            <constraint firstItem="s1j-Nr-rLH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="40" id="olE-47-3Cw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -85,7 +85,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" id="FaA-ci-aa8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.58431372549019611" green="0.75686274509803919" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.65490196078431373" green="0.85098039215686272" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BCg-Ac-XA4">
                             <size key="itemSize" width="188" height="174"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -364,7 +364,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ar2-u1-N3A">
-                                <rect key="frame" x="92" y="498" width="230" height="60"/>
+                                <rect key="frame" x="92" y="458" width="230" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="5pd-7b-nne"/>
@@ -386,44 +386,44 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <state key="normal" title="cancel">
-                                    <color key="titleColor" red="0.32156862749999998" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="cancelButtonClicked:" destination="SPh-FZ-AMU" eventType="touchUpInside" id="Eti-Va-ktZ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="have a great work session!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdj-dh-bhP">
-                                <rect key="frame" x="87" y="283" width="240" height="170"/>
+                                <rect key="frame" x="87" y="223" width="240" height="170"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="Zpo-j7-HHj"/>
                                     <constraint firstAttribute="height" constant="170" id="vps-Y2-HOO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="46"/>
-                                <color key="textColor" red="0.32156862749999998" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="current project:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3b-wa-kTr">
-                                <rect key="frame" x="20" y="762" width="350" height="30"/>
+                                <rect key="frame" x="20" y="756" width="350" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="OXn-9k-6Bz"/>
-                                    <constraint firstAttribute="height" constant="30" id="dBh-nF-1Ec"/>
+                                    <constraint firstAttribute="height" constant="36" id="dBh-nF-1Ec"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
-                                <color key="textColor" red="0.32156862749999998" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="highlightedColor" red="0.32156862749999998" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="project" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tsS-rn-KtE">
-                                <rect key="frame" x="20" y="802" width="350" height="30"/>
+                                <rect key="frame" x="20" y="796" width="350" height="36"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="ISf-ZC-BjO"/>
+                                    <constraint firstAttribute="height" constant="36" id="ISf-ZC-BjO"/>
                                     <constraint firstAttribute="width" constant="350" id="ooa-vq-E2y"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
-                                <color key="textColor" red="0.32156862749999998" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="highlightedColor" red="0.32156862749999998" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.90980392156862744" green="0.5725490196078431" blue="0.5725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.95294117647058818" green="0.45098039215686275" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qdj-dh-bhP" firstAttribute="centerX" secondItem="udW-ms-Hsu" secondAttribute="centerX" id="Dfe-kl-inZ"/>
                             <constraint firstItem="ar2-u1-N3A" firstAttribute="centerX" secondItem="udW-ms-Hsu" secondAttribute="centerX" id="TAX-4U-pbU"/>
@@ -432,9 +432,9 @@
                             <constraint firstItem="98a-zd-q0Y" firstAttribute="leading" secondItem="Jl0-pe-qMR" secondAttribute="leading" constant="20" id="gbE-NR-4s0"/>
                             <constraint firstItem="Jl0-pe-qMR" firstAttribute="bottom" secondItem="tsS-rn-KtE" secondAttribute="bottom" constant="30" id="id4-AW-yrN"/>
                             <constraint firstItem="98a-zd-q0Y" firstAttribute="top" secondItem="Jl0-pe-qMR" secondAttribute="top" id="lRk-72-asz"/>
-                            <constraint firstItem="qdj-dh-bhP" firstAttribute="centerY" secondItem="udW-ms-Hsu" secondAttribute="centerY" constant="-80" id="oaS-Cr-RK4"/>
+                            <constraint firstItem="qdj-dh-bhP" firstAttribute="centerY" secondItem="udW-ms-Hsu" secondAttribute="centerY" constant="-140" id="oaS-Cr-RK4"/>
                             <constraint firstItem="tsS-rn-KtE" firstAttribute="leading" secondItem="Jl0-pe-qMR" secondAttribute="leading" constant="20" id="rJt-T4-8fw"/>
-                            <constraint firstItem="ar2-u1-N3A" firstAttribute="centerY" secondItem="udW-ms-Hsu" secondAttribute="centerY" constant="80" id="zkP-eD-1Te"/>
+                            <constraint firstItem="ar2-u1-N3A" firstAttribute="centerY" secondItem="udW-ms-Hsu" secondAttribute="centerY" constant="40" id="zkP-eD-1Te"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Jl0-pe-qMR"/>
                     </view>
@@ -455,7 +455,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" id="pIo-0s-YeO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.90980392156862744" green="0.5725490196078431" blue="0.5725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.95294117647058818" green="0.45098039215686275" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="quC-MX-B48">
                             <size key="itemSize" width="207" height="199"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>

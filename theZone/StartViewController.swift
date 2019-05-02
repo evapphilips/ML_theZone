@@ -33,7 +33,12 @@ class StartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // format start button appearance
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "bkg-02.png")
+        backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
+        self.view.insertSubview(backgroundImage, at: 0)
+        
+        // format start button appearance.
         startButton.layer.cornerRadius = 30
         startButton.layer.shadowColor = UIColor.darkGray.cgColor
         startButton.layer.shadowRadius = 4

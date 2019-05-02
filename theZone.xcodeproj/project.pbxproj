@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0FB532B8C8C1F7A25F1FA1FF /* Pods_theZone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBBA22DA76CAC6EB3EE0812B /* Pods_theZone.framework */; };
 		D90877B6226B8CD2000857DD /* StopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90877B5226B8CD2000857DD /* StopViewController.swift */; };
+		D996660D227B554E005F1224 /* bkg-02.png in Resources */ = {isa = PBXBuildFile; fileRef = D996660B227B554D005F1224 /* bkg-02.png */; };
+		D996660E227B554E005F1224 /* bkg-03.png in Resources */ = {isa = PBXBuildFile; fileRef = D996660C227B554D005F1224 /* bkg-03.png */; };
 		D9C306A2226FD931007EFC36 /* PreSubmitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C306A1226FD931007EFC36 /* PreSubmitCollectionViewCell.swift */; };
 		D9C306A4226FDCD0007EFC36 /* ProjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C306A3226FDCD0007EFC36 /* ProjectCollectionViewCell.swift */; };
 		D9C306A6226FE52F007EFC36 /* PlaceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C306A5226FE52F007EFC36 /* PlaceCollectionViewCell.swift */; };
@@ -33,6 +35,8 @@
 		10CFCC4326DF6718355F7ED0 /* Pods-theZone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-theZone.release.xcconfig"; path = "Target Support Files/Pods-theZone/Pods-theZone.release.xcconfig"; sourceTree = "<group>"; };
 		332F1341DB41A6592A53609C /* Pods-theZone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-theZone.debug.xcconfig"; path = "Target Support Files/Pods-theZone/Pods-theZone.debug.xcconfig"; sourceTree = "<group>"; };
 		D90877B5226B8CD2000857DD /* StopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopViewController.swift; sourceTree = "<group>"; };
+		D996660B227B554D005F1224 /* bkg-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bkg-02.png"; path = "../../bkg-02.png"; sourceTree = "<group>"; };
+		D996660C227B554D005F1224 /* bkg-03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bkg-03.png"; path = "../../bkg-03.png"; sourceTree = "<group>"; };
 		D9C306A1226FD931007EFC36 /* PreSubmitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreSubmitCollectionViewCell.swift; sourceTree = "<group>"; };
 		D9C306A3226FDCD0007EFC36 /* ProjectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCollectionViewCell.swift; sourceTree = "<group>"; };
 		D9C306A5226FE52F007EFC36 /* PlaceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -74,7 +78,6 @@
 				332F1341DB41A6592A53609C /* Pods-theZone.debug.xcconfig */,
 				10CFCC4326DF6718355F7ED0 /* Pods-theZone.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -107,6 +110,8 @@
 		D9CA32F2226B850400B182CB /* theZone */ = {
 			isa = PBXGroup;
 			children = (
+				D996660B227B554D005F1224 /* bkg-02.png */,
+				D996660C227B554D005F1224 /* bkg-03.png */,
 				D9CA32F3226B850400B182CB /* AppDelegate.swift */,
 				D9D9BC802274ADAD002C150E /* AppData.swift */,
 				D9CA32F5226B850400B182CB /* StartViewController.swift */,
@@ -191,6 +196,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D996660D227B554E005F1224 /* bkg-02.png in Resources */,
+				D996660E227B554E005F1224 /* bkg-03.png in Resources */,
 				D9CA32FE226B850500B182CB /* LaunchScreen.storyboard in Resources */,
 				D9CA32FB226B850500B182CB /* Assets.xcassets in Resources */,
 				D9CA32F9226B850400B182CB /* Main.storyboard in Resources */,
