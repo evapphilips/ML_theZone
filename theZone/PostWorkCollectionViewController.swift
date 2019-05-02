@@ -28,6 +28,9 @@ class PostWorkCollectionViewController: UICollectionViewController {
     // setup saved alert
     var savedAlert: UIAlertController!
     var failedAlert: UIAlertController!
+    
+    // setup other alert
+    var otherAlert: UIAlertController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -256,9 +259,43 @@ class PostWorkCollectionViewController: UICollectionViewController {
     
     // when tag is pressed, update the data app tags
     @objc func tagIsPressed(_ button: UIButton) {
-        button.backgroundColor = .gray
-        myAppData.tags.append(button.titleLabel?.text ?? "")
+        if(button.titleLabel?.text != "other"){
+            button.backgroundColor = .gray
+            myAppData.tags.append(button.titleLabel?.text ?? "")
+        }
+        
+        
+        // if other bring up a UI text input
+        if(button.titleLabel?.text == "other"){
+            button.backgroundColor = .gray
+            displayOtherAlert()
+        }
     }
+    
+    // make other input alert
+    func displayOtherAlert(){
+        // create other alert
+        savedAlert = UIAlertController(title: nil, message: "Add other tag", preferredStyle: .alert)
+        // create cancel action
+        let cancelAction = UIAlertAction(title: "cancel", style: .cancel){ (_) in
+        }
+        // add other text field
+        savedAlert.addTextField { (textField) in
+            textField.placeholder = "other tag"
+        }
+        // create save action
+        let saveAction = UIAlertAction(title: "OK", style: .default){ (_) in
+            //let otherInput = self.savedAlert.textFields![0].text
+            self.myAppData.tags.append(self.savedAlert.textFields![0].text ?? "")
+        }
+        // show actions
+        savedAlert.addAction(saveAction)
+        savedAlert.addAction(cancelAction)
+        // show save alert
+        self.present(savedAlert, animated: true)
+        
+    }
+    
     
     // make a POST request to the api when post submit is pressed
     func postData(project: String, task: String, place: String, goal: String, location: [Double], weather: [String], sound: String, timeStart: NSDate, goalCompletion: String, excitement: String, tags: [String], timeEnd: NSDate){
@@ -292,7 +329,7 @@ class PostWorkCollectionViewController: UICollectionViewController {
     // make save alert
     func displaySavedAlert(){
         // create save alert
-        savedAlert = UIAlertController(title: nil, message: "your work session has been saved", preferredStyle: .alert)
+        savedAlert = UIAlertController(title: nil, message: "Your work session has been saved! Congratulations, you have completed a work session!", preferredStyle: .alert)
         // create ok action
         let okayAction = UIAlertAction(title: "OK", style: .default){ (_) in
             // clear all the data variables
@@ -324,7 +361,7 @@ class PostWorkCollectionViewController: UICollectionViewController {
     // make failed alert
     func displayFailedAlert(){
         // create fail alert
-        failedAlert = UIAlertController(title: nil, message: "something went wrong, your work session was not saved", preferredStyle: .alert)
+        failedAlert = UIAlertController(title: nil, message: "Something went wrong, your work session was not saved", preferredStyle: .alert)
         // create ok action
         let okayAction = UIAlertAction(title: "OK", style: .cancel)
         // show action
