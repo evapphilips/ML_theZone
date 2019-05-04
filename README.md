@@ -6,4 +6,5 @@ For a link to the express API setup used in this project, visit this [repository
 
 The following resources were used as reference for creating this application:
 1. [collection view reference](https://stackoverflow.com/questions/35045155/how-to-create-a-centered-uicollectionview-like-in-spotifys-player)
+2. [dark sky api](https://darksky.net/dev)
 
