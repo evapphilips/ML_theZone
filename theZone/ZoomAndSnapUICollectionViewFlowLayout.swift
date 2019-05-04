@@ -36,6 +36,12 @@ class ZoomAndSnapUICollectionViewFlowLayout: UICollectionViewFlowLayout {
         let horizontalInsets = (collectionView.frame.width - collectionView.adjustedContentInset.right - collectionView.adjustedContentInset.left - itemSize.width) / 2
         sectionInset = UIEdgeInsets(top: verticalInsets, left: horizontalInsets, bottom: verticalInsets, right: horizontalInsets)
         
+        // dont animate when keyboard raises
+        collectionView.contentInsetAdjustmentBehavior = .never
+        
+        // set paging
+        collectionView.isPagingEnabled = true;
+        
         super.prepare()
     }
     
@@ -63,23 +69,32 @@ class ZoomAndSnapUICollectionViewFlowLayout: UICollectionViewFlowLayout {
     // collection view target content offset
     override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
         guard let collectionView = collectionView else { return .zero }
-        
-        // Add some snapping behaviour so that the zoomed cell is always centered
-        let targetRect = CGRect(x: proposedContentOffset.x, y: 0, width: collectionView.frame.width, height: collectionView.frame.height)
-        guard let rectAttributes = super.layoutAttributesForElements(in: targetRect) else { return .zero }
-        
-        var offsetAdjustment = CGFloat.greatestFiniteMagnitude
-        let horizontalCenter = proposedContentOffset.x + collectionView.frame.width / 2
-        
-        for layoutAttributes in rectAttributes {
-            let itemHorizontalCenter = layoutAttributes.center.x
-            if (itemHorizontalCenter - horizontalCenter).magnitude < offsetAdjustment.magnitude {
-                offsetAdjustment = itemHorizontalCenter - horizontalCenter
-            }
-        }
-        
-        return CGPoint(x: proposedContentOffset.x + offsetAdjustment, y: proposedContentOffset.y)
+        let dragOffset = collectionView.frame.width / 2
+        let itemIndex = round(proposedContentOffset.x / dragOffset)
+        let xOffset = itemIndex * dragOffset
+        return CGPoint(x: xOffset, y: 0)
     }
+        
+        
+//        guard let collectionView = collectionView else { return .zero }
+//
+//        // Add some snapping behaviour so that the zoomed cell is always centered
+//        let targetRect = CGRect(x: proposedContentOffset.x, y: 0, width: collectionView.frame.width, height: collectionView.frame.height)
+//        guard let rectAttributes = super.layoutAttributesForElements(in: targetRect) else { return .zero }
+//
+//        var offsetAdjustment = CGFloat.greatestFiniteMagnitude
+//        let horizontalCenter = proposedContentOffset.x + collectionView.frame.width / 2
+//
+//
+//        for layoutAttributes in rectAttributes {
+//            let itemHorizontalCenter = layoutAttributes.center.x
+//            if (itemHorizontalCenter - horizontalCenter).magnitude < offsetAdjustment.magnitude {
+//                offsetAdjustment = itemHorizontalCenter - horizontalCenter
+//            }
+//        }
+//
+//        return CGPoint(x: proposedContentOffset.x + offsetAdjustment, y: proposedContentOffset.y)
+//    }
     
     // only validate main cell of collection view
     override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {

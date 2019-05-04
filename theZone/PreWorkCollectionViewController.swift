@@ -38,12 +38,14 @@ class PreWorkCollectionViewController: UICollectionViewController, AVAudioRecord
     // setup saved alert
     var savedAlert: UIAlertController!
     
+    // setup next button
+    var nextButton: UIButton!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setupHideKeyboardOnTap()
-        
         
         // set up collection view
         guard let collectionView = collectionView else { fatalError() }
@@ -59,6 +61,12 @@ class PreWorkCollectionViewController: UICollectionViewController, AVAudioRecord
         // add target when cancel button is pressed
         cancelButton.addTarget(self, action: #selector(cancelButtonClicked(_:)), for: .touchUpInside)
         self.view.addSubview(cancelButton)
+        
+        ////
+        //self.collectionView.isPagingEnabled = true
+        
+        ////
+        
         
         // collect background data
         // time/date start data
@@ -134,12 +142,29 @@ class PreWorkCollectionViewController: UICollectionViewController, AVAudioRecord
         }else{
             myAppData.weather = []
         }
+        
+        // setup next button
+        nextButton = UIButton(frame: CGRect(x: self.view.frame.width/2 - 50, y:self.view.frame.height/2 + 200 , width: 100, height: 36))
+        nextButton.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 20)
+        nextButton.setTitle("next", for: .normal)
+        nextButton.setTitleColor(UIColor(red:0.32, green:0.28, blue:0.28, alpha:1.0), for: .normal)
+        nextButton.backgroundColor = .white
+        nextButton.layer.cornerRadius = 18
+        // add target when next button is pressed
+        nextButton.addTarget(self, action: #selector(nextButtonClicked(_:)), for: .touchUpInside)
+        self.view.addSubview(nextButton)
+        
     }
     
     // when cancel button is pressed go back to start view controller
     @objc func cancelButtonClicked(_ sender: UIButton){
         // show cancel alert
         displayCancelAlert()
+    }
+    
+    // when next button is pressed go to next cell
+    @objc func nextButtonClicked(_ sender: UIButton){
+        print("next")
     }
     
     // made cancel alert

@@ -23,10 +23,11 @@ class PlaceCollectionViewCell: UICollectionViewCell {
     // connect work button
     @IBOutlet weak var workButton: UIButton!
     
+    // reset buttons function
     
     
-    
-    
-   
+//    override func awakeFromNib() {
+//        <#code#>
+//    }
     
 }
