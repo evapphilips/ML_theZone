@@ -112,7 +112,7 @@ class PreWorkCollectionViewController: UICollectionViewController, AVAudioRecord
             //let lat = myAppData.location[0]
             //let long = myAppData.location[1]
             
-            let loc = String("\(myAppData.location[0])" + "," + "\(myAppData.location[0])")
+            let loc = String("\(myAppData.location[0])" + "," + "\(myAppData.location[1])")
             let weatherUrl = baseWeatherUrl + weatherAPIKey + "/" + loc
             //print(weatherUrl)
             
@@ -235,15 +235,6 @@ class PreWorkCollectionViewController: UICollectionViewController, AVAudioRecord
         
         if indexPath.row == 0{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProjectCell", for: indexPath) as! ProjectCollectionViewCell
-            cell.layer.cornerRadius = 10
-//            cell.layer.borderColor = UIColor.white.cgColor
-//            cell.layer.borderWidth = 1
-//            cell.layer.shadowColor = UIColor.darkGray.cgColor
-//            cell.layer.shadowRadius = 4
-//            cell.layer.shadowOpacity = 0.5
-//            cell.layer.masksToBounds = false
-//            cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius:  cell.layer.cornerRadius).cgPath
-            cell.backgroundColor = .white
             cell.preQuestionLabel.text = preQuestions[indexPath.row]
             // add action to project text field
             cell.projectTextField.addTarget(self, action: #selector(projectTextFieldDidChange(_:)), for: .editingChanged)
@@ -252,15 +243,6 @@ class PreWorkCollectionViewController: UICollectionViewController, AVAudioRecord
             return cell
         }else if indexPath.row == 1{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TaskCell", for: indexPath) as! TaskCollectionViewCell
-            cell.layer.cornerRadius = 10
-            //            cell.layer.borderColor = UIColor.white.cgColor
-            //            cell.layer.borderWidth = 1
-//            cell.layer.shadowColor = UIColor.darkGray.cgColor
-//            cell.layer.shadowRadius = 4
-//            cell.layer.shadowOpacity = 0.5
-//            cell.layer.masksToBounds = false
-//            cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius:  cell.layer.cornerRadius).cgPath
-            cell.backgroundColor = .white
             cell.preQuestionLabel.text = preQuestions[indexPath.row]
             // add action to task text field
             cell.taskTextField.addTarget(self, action: #selector(taskTextFieldDidChange(_:)), for: .editingChanged)
@@ -269,29 +251,7 @@ class PreWorkCollectionViewController: UICollectionViewController, AVAudioRecord
             return cell
         }else if indexPath.row == 2{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlaceCell", for: indexPath) as! PlaceCollectionViewCell
-            cell.layer.cornerRadius = 10
-            //            cell.layer.borderColor = UIColor.white.cgColor
-            //            cell.layer.borderWidth = 1
-//            cell.layer.shadowColor = UIColor.darkGray.cgColor
-//            cell.layer.shadowRadius = 4
-//            cell.layer.shadowOpacity = 0.5
-//            cell.layer.masksToBounds = false
-//            cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius:  cell.layer.cornerRadius).cgPath
-            cell.backgroundColor = .white
             cell.preQuestionLabel.text = preQuestions[indexPath.row]
-            // set button radius
-            cell.workButton.layer.cornerRadius = 15;
-            cell.workButton.layer.borderColor = UIColor.gray.cgColor;
-            cell.workButton.layer.borderWidth = 1;
-            cell.coffeeButton.layer.cornerRadius = 15;
-            cell.coffeeButton.layer.borderColor = UIColor.gray.cgColor;
-            cell.coffeeButton.layer.borderWidth = 1;
-            cell.homeButton.layer.cornerRadius = 15;
-            cell.homeButton.layer.borderColor = UIColor.gray.cgColor;
-            cell.homeButton.layer.borderWidth = 1;
-            cell.otherButton.layer.cornerRadius = 15;
-            cell.otherButton.layer.borderColor = UIColor.gray.cgColor;
-            cell.otherButton.layer.borderWidth = 1;
             // add button actions
             cell.workButton.addTarget(self, action: #selector(placeIsPressed(_:)), for: UIControl.Event.touchUpInside)
             cell.coffeeButton.addTarget(self, action: #selector(placeIsPressed(_:)), for: UIControl.Event.touchUpInside)
@@ -301,15 +261,6 @@ class PreWorkCollectionViewController: UICollectionViewController, AVAudioRecord
         }
         else if indexPath.row == 3{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GoalCell", for: indexPath) as! GoalCollectionViewCell
-            cell.layer.cornerRadius = 10
-            //            cell.layer.borderColor = UIColor.white.cgColor
-            //            cell.layer.borderWidth = 1
-//            cell.layer.shadowColor = UIColor.darkGray.cgColor
-//            cell.layer.shadowRadius = 4
-//            cell.layer.shadowOpacity = 0.5
-//            cell.layer.masksToBounds = false
-//            cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius:  cell.layer.cornerRadius).cgPath
-            cell.backgroundColor = .white
             cell.preQuestionLabel.text = preQuestions[indexPath.row]
             // add goal to project text field
             cell.goalTextField.addTarget(self, action: #selector(goalTextFieldDidChange(_:)), for: .editingChanged)
@@ -318,11 +269,6 @@ class PreWorkCollectionViewController: UICollectionViewController, AVAudioRecord
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PreSubmitCell", for: indexPath) as! PreSubmitCollectionViewCell
-            // format submit button
-            cell.preSubmitButton.layer.cornerRadius = 25
-            cell.preSubmitButton.layer.shadowColor = UIColor.darkGray.cgColor
-            cell.preSubmitButton.layer.shadowRadius = 4
-            cell.preSubmitButton.layer.shadowOpacity = 0.5
             // call the change view method when submit is pressed
             cell.preSubmitButton.addTarget(self, action: #selector(preSubmitClicked(_:)), for: .touchUpInside)
             return cell

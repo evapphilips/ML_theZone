@@ -17,4 +17,10 @@ class GoalCollectionViewCell: UICollectionViewCell {
     // connect goal textfield
     @IBOutlet weak var goalTextField: UITextField!
     
+    override func awakeFromNib() {
+        // format cell appearance
+        self.layer.cornerRadius = 10
+        self.backgroundColor = .white
+    }
+    
 }

@@ -132,25 +132,7 @@ class PostWorkCollectionViewController: UICollectionViewController {
         
         if indexPath.row == 0{
            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CompleteCell", for: indexPath) as! CompleteCollectionViewCell
-            cell.layer.cornerRadius = 10
-//            cell.layer.borderColor = UIColor.white.cgColor
-//            cell.layer.borderWidth = 1
-            cell.layer.shadowColor = UIColor.darkGray.cgColor
-            cell.layer.shadowRadius = 4
-            cell.layer.shadowOpacity = 0.5
-            cell.layer.masksToBounds = false
-            cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius:  cell.layer.cornerRadius).cgPath
-            cell.backgroundColor = .white
             cell.postQuestionLabel.text = postQuestions[indexPath.row]
-            cell.yesButton.layer.cornerRadius = 15
-            cell.yesButton.layer.borderColor = UIColor.gray.cgColor;
-            cell.yesButton.layer.borderWidth = 1;
-            cell.noButton.layer.cornerRadius = 15
-            cell.noButton.layer.borderColor = UIColor.gray.cgColor;
-            cell.noButton.layer.borderWidth = 1;
-            cell.mostlyButton.layer.cornerRadius = 15
-            cell.mostlyButton.layer.borderColor = UIColor.gray.cgColor;
-            cell.mostlyButton.layer.borderWidth = 1;
             // add button actions
             cell.yesButton.addTarget(self, action: #selector(completeIsPressed(_:)), for: UIControl.Event.touchUpInside)
             cell.noButton.addTarget(self, action: #selector(completeIsPressed(_:)), for: UIControl.Event.touchUpInside)
@@ -158,25 +140,7 @@ class PostWorkCollectionViewController: UICollectionViewController {
             return cell
         }else if indexPath.row == 1{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ExciteCell", for: indexPath) as! ExciteCollectionViewCell
-            cell.layer.cornerRadius = 10
-//            cell.layer.borderColor = UIColor.white.cgColor
-//            cell.layer.borderWidth = 1
-            cell.layer.shadowColor = UIColor.darkGray.cgColor
-            cell.layer.shadowRadius = 4
-            cell.layer.shadowOpacity = 0.5
-            cell.layer.masksToBounds = false
-            cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius:  cell.layer.cornerRadius).cgPath
-            cell.backgroundColor = .white
             cell.postQuestionLabel.text = postQuestions[indexPath.row]
-            cell.yesButton.layer.cornerRadius = 15
-            cell.yesButton.layer.borderColor = UIColor.gray.cgColor;
-            cell.yesButton.layer.borderWidth = 1;
-            cell.noButton.layer.cornerRadius = 15
-            cell.noButton.layer.borderColor = UIColor.gray.cgColor;
-            cell.noButton.layer.borderWidth = 1;
-            cell.mostlyButton.layer.cornerRadius = 15
-            cell.mostlyButton.layer.borderColor = UIColor.gray.cgColor;
-            cell.mostlyButton.layer.borderWidth = 1;
             // add button actions
             cell.yesButton.addTarget(self, action: #selector(excitementIsPressed(_:)), for: UIControl.Event.touchUpInside)
             cell.noButton.addTarget(self, action: #selector(excitementIsPressed(_:)), for: UIControl.Event.touchUpInside)
@@ -184,37 +148,7 @@ class PostWorkCollectionViewController: UICollectionViewController {
             return cell
         }else if indexPath.row == 2{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCell", for: indexPath) as! TagCollectionViewCell
-            cell.layer.cornerRadius = 10
-//            cell.layer.borderColor = UIColor.white.cgColor
-//            cell.layer.borderWidth = 1
-            cell.layer.shadowColor = UIColor.darkGray.cgColor
-            cell.layer.shadowRadius = 4
-            cell.layer.shadowOpacity = 0.5
-            cell.layer.masksToBounds = false
-            cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius:  cell.layer.cornerRadius).cgPath
-            cell.backgroundColor = .white
             cell.postQuestionLabel.text = postQuestions[indexPath.row]
-            cell.tiredButton.layer.cornerRadius = 15
-            cell.tiredButton.layer.borderColor = UIColor.gray.cgColor;
-            cell.tiredButton.layer.borderWidth = 1;
-            cell.distractedButton.layer.cornerRadius = 15
-            cell.distractedButton.layer.borderColor = UIColor.gray.cgColor;
-            cell.distractedButton.layer.borderWidth = 1;
-            cell.noCoffeeButton.layer.cornerRadius = 15
-            cell.noCoffeeButton.layer.borderColor = UIColor.gray.cgColor;
-            cell.noCoffeeButton.layer.borderWidth = 1;
-            cell.hungryButton.layer.cornerRadius = 15
-            cell.hungryButton.layer.borderColor = UIColor.gray.cgColor;
-            cell.hungryButton.layer.borderWidth = 1;
-            cell.sickButton.layer.cornerRadius = 15
-            cell.sickButton.layer.borderColor = UIColor.gray.cgColor;
-            cell.sickButton.layer.borderWidth = 1;
-            cell.screenButton.layer.cornerRadius = 15
-            cell.screenButton.layer.borderColor = UIColor.gray.cgColor;
-            cell.screenButton.layer.borderWidth = 1;
-            cell.otherButton.layer.cornerRadius = 15
-            cell.otherButton.layer.borderColor = UIColor.gray.cgColor;
-            cell.otherButton.layer.borderWidth = 1;
             // add button actions
             cell.tiredButton.addTarget(self, action: #selector(tagIsPressed(_:)), for: UIControl.Event.touchUpInside)
             cell.distractedButton.addTarget(self, action: #selector(tagIsPressed(_:)), for: UIControl.Event.touchUpInside)
@@ -226,10 +160,6 @@ class PostWorkCollectionViewController: UICollectionViewController {
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostSubmitCell", for: indexPath) as! PostSubmitCollectionViewCell
-            cell.postSubmitButton.layer.cornerRadius = 25;
-            cell.postSubmitButton.layer.shadowColor = UIColor.darkGray.cgColor
-            cell.postSubmitButton.layer.shadowRadius = 4
-            cell.postSubmitButton.layer.shadowOpacity = 0.5
             cell.postSubmitButton.addTarget(self, action: #selector(postSubmitClicked(_:)), for: .touchUpInside)
            return cell
         }
@@ -267,17 +197,18 @@ class PostWorkCollectionViewController: UICollectionViewController {
         
         // if other bring up a UI text input
         if(button.titleLabel?.text == "other"){
-            button.backgroundColor = .gray
-            displayOtherAlert()
+            //button.backgroundColor = .gray
+            displayOtherAlert(button)
         }
     }
     
     // make other input alert
-    func displayOtherAlert(){
+    func displayOtherAlert(_ button: UIButton){
         // create other alert
         savedAlert = UIAlertController(title: nil, message: "Add other tag", preferredStyle: .alert)
         // create cancel action
         let cancelAction = UIAlertAction(title: "cancel", style: .cancel){ (_) in
+            button.backgroundColor = .white
         }
         // add other text field
         savedAlert.addTextField { (textField) in
@@ -287,6 +218,8 @@ class PostWorkCollectionViewController: UICollectionViewController {
         let saveAction = UIAlertAction(title: "OK", style: .default){ (_) in
             //let otherInput = self.savedAlert.textFields![0].text
             self.myAppData.tags.append(self.savedAlert.textFields![0].text ?? "")
+            
+            button.backgroundColor = .gray
         }
         // show actions
         savedAlert.addAction(saveAction)
@@ -361,7 +294,7 @@ class PostWorkCollectionViewController: UICollectionViewController {
     // make failed alert
     func displayFailedAlert(){
         // create fail alert
-        failedAlert = UIAlertController(title: nil, message: "Something went wrong, your work session was not saved", preferredStyle: .alert)
+        failedAlert = UIAlertController(title: nil, message: "Something went wrong, your work session was not saved.  Check that your credentials are correct.", preferredStyle: .alert)
         // create ok action
         let okayAction = UIAlertAction(title: "OK", style: .cancel)
         // show action

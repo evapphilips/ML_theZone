@@ -16,6 +16,11 @@ class TaskCollectionViewCell: UICollectionViewCell {
     // connect task text field
     @IBOutlet weak var taskTextField: UITextField!
     
+    override func awakeFromNib() {
+        // format cell
+        self.layer.cornerRadius = 10
+        self.backgroundColor = .white
+    }
     
     
 }

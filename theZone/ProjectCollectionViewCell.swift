@@ -18,6 +18,13 @@ class ProjectCollectionViewCell: UICollectionViewCell {
     // connect project text field
     @IBOutlet weak var projectTextField: UITextField!
     
+    override func awakeFromNib() {
+        // format cell
+        self.layer.cornerRadius = 10
+        self.backgroundColor = .white
+        
+    }
+    
     
     
     

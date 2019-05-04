@@ -13,5 +13,13 @@ class PostSubmitCollectionViewCell: UICollectionViewCell {
     // connect submit button
     @IBOutlet weak var postSubmitButton: UIButton!
     
+    override func awakeFromNib() {
+        // format cell appearance
+        postSubmitButton.layer.cornerRadius = 25;
+        postSubmitButton.layer.shadowColor = UIColor.darkGray.cgColor
+        postSubmitButton.layer.shadowRadius = 4
+        postSubmitButton.layer.shadowOpacity = 0.5
+    }
+    
     
 }

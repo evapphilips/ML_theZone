@@ -192,6 +192,9 @@
                                             <state key="normal" title="home">
                                                 <color key="titleColor" red="0.32156862749999998" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="homePressed:" destination="pTp-Be-KNA" eventType="touchUpInside" id="bW9-P0-fX4"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W77-mC-5w2">
                                             <rect key="frame" x="78.5" y="118" width="100" height="30"/>
@@ -204,6 +207,9 @@
                                             <state key="normal" title="coffee shop">
                                                 <color key="titleColor" red="0.32156862749999998" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="coffeePressed:" destination="pTp-Be-KNA" eventType="touchUpInside" id="U0m-1I-VoB"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8wC-rz-IhD">
                                             <rect key="frame" x="88.5" y="198" width="80" height="30"/>
@@ -216,6 +222,9 @@
                                             <state key="normal" title="other">
                                                 <color key="titleColor" red="0.32156862749999998" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="otherPressed:" destination="pTp-Be-KNA" eventType="touchUpInside" id="89g-kc-Wkz"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VtI-iY-M6J">
                                             <rect key="frame" x="28.5" y="10" width="200" height="53"/>
@@ -238,6 +247,9 @@
                                             <state key="normal" title="work">
                                                 <color key="titleColor" red="0.32156862749999998" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="workPressed:" destination="pTp-Be-KNA" eventType="touchUpInside" id="Q3N-rl-6d6"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </view>
@@ -490,6 +502,9 @@
                                             <state key="normal" title="yes">
                                                 <color key="titleColor" red="0.32156862749999998" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="yesPressed:" destination="3jR-mO-3Ab" eventType="touchUpInside" id="zcw-hY-FWl"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VvE-mT-PwV">
                                             <rect key="frame" x="109" y="192" width="80" height="30"/>
@@ -501,6 +516,9 @@
                                             <state key="normal" title="no">
                                                 <color key="titleColor" red="0.32156862749999998" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="noPressed:" destination="3jR-mO-3Ab" eventType="touchUpInside" id="VbI-ui-49p"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWh-4a-gPp">
                                             <rect key="frame" x="109" y="232" width="80" height="30"/>
@@ -512,6 +530,9 @@
                                             <state key="normal" title="mostly">
                                                 <color key="titleColor" red="0.32156862749999998" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="mostlyPressed:" destination="3jR-mO-3Ab" eventType="touchUpInside" id="PlN-A7-ei6"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="swipe right to continue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SDN-iv-B2S">
                                             <rect key="frame" x="24" y="284" width="250" height="15"/>
@@ -546,14 +567,14 @@
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ExciteCell" id="PF0-BK-eyD" customClass="ExciteCollectionViewCell" customModule="theZone" customModuleProvider="target">
-                                <rect key="frame" x="140.5" y="317" width="133" height="132"/>
+                                <rect key="frame" x="70.5" y="317" width="273" height="298"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="133" height="132"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="273" height="298"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5DS-Oq-5QB">
-                                            <rect key="frame" x="-33.5" y="62" width="200" height="80"/>
+                                            <rect key="frame" x="36.5" y="62" width="200" height="80"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="80" id="SfR-fV-Qcq"/>
                                                 <constraint firstAttribute="width" constant="200" id="d6w-ea-Azv"/>
@@ -563,7 +584,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXf-Sn-TkR">
-                                            <rect key="frame" x="26.5" y="152" width="80" height="30"/>
+                                            <rect key="frame" x="96.5" y="152" width="80" height="30"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="3hl-du-D5O"/>
@@ -572,9 +593,12 @@
                                             <state key="normal" title="yes">
                                                 <color key="titleColor" red="0.32156862749999998" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="yesPressed:" destination="PF0-BK-eyD" eventType="touchUpInside" id="KEt-q6-C9G"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1L-uU-pGV">
-                                            <rect key="frame" x="26.5" y="192" width="80" height="30"/>
+                                            <rect key="frame" x="96.5" y="192" width="80" height="30"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="5g2-dm-Qeo"/>
@@ -583,9 +607,12 @@
                                             <state key="normal" title="no">
                                                 <color key="titleColor" red="0.32156862749999998" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="noPressed:" destination="PF0-BK-eyD" eventType="touchUpInside" id="2uD-ay-uPI"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3f-Nt-c9R">
-                                            <rect key="frame" x="26.5" y="232" width="80" height="30"/>
+                                            <rect key="frame" x="96.5" y="232" width="80" height="30"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="qIi-JM-VCP"/>
@@ -594,6 +621,9 @@
                                             <state key="normal" title="mostly">
                                                 <color key="titleColor" red="0.32156862749999998" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="mostlyPressed:" destination="PF0-BK-eyD" eventType="touchUpInside" id="BEt-e9-PaM"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </view>
@@ -607,7 +637,7 @@
                                     <constraint firstItem="KXf-Sn-TkR" firstAttribute="centerX" secondItem="PF0-BK-eyD" secondAttribute="centerX" id="aEp-8O-Uny"/>
                                     <constraint firstItem="d3f-Nt-c9R" firstAttribute="centerX" secondItem="PF0-BK-eyD" secondAttribute="centerX" id="wIN-0D-p0C"/>
                                 </constraints>
-                                <size key="customSize" width="133" height="132"/>
+                                <size key="customSize" width="273" height="298"/>
                                 <connections>
                                     <outlet property="mostlyButton" destination="d3f-Nt-c9R" id="ttF-84-FE5"/>
                                     <outlet property="noButton" destination="o1L-uU-pGV" id="vA4-LO-ZxF"/>
@@ -616,7 +646,7 @@
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TagCell" id="3k1-Uy-S2b" customClass="TagCollectionViewCell" customModule="theZone" customModuleProvider="target">
-                                <rect key="frame" x="29" y="459" width="356" height="367"/>
+                                <rect key="frame" x="29" y="625" width="356" height="367"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="356" height="367"/>
@@ -675,6 +705,9 @@
                                             <state key="normal" title="other">
                                                 <color key="titleColor" red="0.32156862749999998" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="otherPressed:" destination="3k1-Uy-S2b" eventType="touchUpInside" id="JqY-b8-wFw"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLb-3m-dPj">
                                             <rect key="frame" x="178" y="199" width="100" height="30"/>
@@ -742,7 +775,7 @@
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PostSubmitCell" id="KrZ-Vy-xXF" customClass="PostSubmitCollectionViewCell" customModule="theZone" customModuleProvider="target">
-                                <rect key="frame" x="119" y="836" width="176" height="181"/>
+                                <rect key="frame" x="119" y="1002" width="176" height="181"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="176" height="181"/>
